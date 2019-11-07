@@ -1,5 +1,5 @@
 package com.tirthhihoriya;
-
+import com.filters.*;
 import java.util.Scanner;
 
 public class Main {
@@ -11,12 +11,14 @@ public class Main {
         Destination d = h1.menu();
         System.out.println(h1.getDestination());
 
-        Filters f = new Filters();
-        f.setBudget();
-        f.setNights();
+        budget_filter bf = new budget_filter();
+        bf.setBudget();
+
+        night_filter nf = new night_filter();
+        nf.setNights();
 
         Select_package sp = new Select_package();
-        Package pack = sp.selection(h1.getDestination(),f.getBudget(),f.getNights());
+        Package pack = sp.selection(h1.getDestination(),bf.getBudget(),nf.getNights());
         System.out.println(pack.getDescribe());
         System.out.println(pack.getFacilities());
         System.out.println(pack.getNights());
@@ -25,10 +27,12 @@ public class Main {
 
         int c;
         do{
-            System.out.println("Enter 1 to select Destination");
-            System.out.println("Enter 2 to adjust Filters");
-            System.out.println("Enter 3 to select trip Package");
-            System.out.println("Enter 4 to select flight");
+            System.out.println("____________________________________________");
+            System.out.println("\nEnter 1 to change Destination");
+            System.out.println("Enter 2 to change BUDGET_filter");
+            System.out.println("Enter 3 to change NIGHTs_filter");
+            System.out.println("Enter 4 to change trip Package");
+            System.out.println("Enter 5 to select flight");
             System.out.println("Enter 0 to Exit");
 
 
@@ -41,28 +45,21 @@ public class Main {
                     h1 = new Holiday();
                     d = h1.menu();
                     System.out.println(h1.getDestination());
-//                    break;
-//                case 2:
-                    f = new Filters();
-                    f.setBudget();
-                    f.setNights();
-//                    break;
-//                case 3:
-                    sp = new Select_package();
-                    pack = sp.selection(h1.getDestination(),f.getBudget(),f.getNights());
-                    System.out.println(pack.getDescribe());
-                    System.out.println(pack.getFacilities());
-                    System.out.println(pack.getNights());
-                    System.out.println(pack.getTotal_price());
                     break;
                 case 2:
 
-                    f.setBudget();
-                    f.setNights();
+                    bf.setBudget();
                     break;
+
                 case 3:
 
-                    pack = sp.selection(h1.getDestination(),f.getBudget(),f.getNights());
+                    nf.setNights();
+                    break;
+
+
+                case 4:
+
+                    pack = sp.selection(h1.getDestination(),bf.getBudget(),nf.getNights());
                     System.out.println(pack.getDescribe());
                     System.out.println(pack.getFacilities());
                     System.out.println(pack.getNights());

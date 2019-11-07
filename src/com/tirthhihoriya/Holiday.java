@@ -18,7 +18,7 @@ class Holiday
     {
         int dest;
         Scanner sca = new Scanner(System.in);
-        System.out.println("1: Kerela");
+        System.out.println("\n1: Kerela");
         System.out.println("2: Dubai");
         System.out.println("3: Bali");
         System.out.println("4: Goa\n");
