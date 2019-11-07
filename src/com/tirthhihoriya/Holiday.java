@@ -3,7 +3,21 @@ package com.tirthhihoriya;
 import java.util.*;
 class Holiday
 {
-    int destination;
+    private int destination;
+
+    public Holiday(int destination) {
+        this.destination = destination;
+    }
+
+    public int getDestination() {
+        return destination;
+    }
+
+    public void setDestination(int destination) {
+        this.destination = destination;
+    }
+
+
     public void menu()
     {
         Scanner sca = new Scanner(System.in);
