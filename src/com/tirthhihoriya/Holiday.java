@@ -1,24 +1,25 @@
 package com.tirthhihoriya;
 
+
 import java.util.*;
 class Holiday
 {
-    private String destination;
+    private String Destinations;
 
 
-    public String getDestination() {
-        return destination;
+    public String getDestinations() {
+        return Destinations;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setDestinations(String Destinations) {
+        this.Destinations = Destinations;
     }
 
-    public Destination menu()
+    public Destinations menu()
     {
         int dest;
         Scanner sca = new Scanner(System.in);
-        System.out.println("\n________________TRENDING DESTINATIONs______________\n");
+        System.out.println("\n\n________________TRENDING Destinations______________\n");
 
         System.out.println("\n1: Kerela");
         System.out.println("2: Dubai");
@@ -31,28 +32,28 @@ class Holiday
         switch(dest)
         {
             case 1:
-                Destination Kerela = new Destination("South_indian place","national");
-                setDestination("Kerela");
+                Destinations Kerela = new Destinations("South_indian place","national");
+                setDestinations("Kerela");
                 return Kerela;
             case 2:
-                Destination Dubai = new Destination("South_indian place","international");
-                setDestination("Dubai");
+                Destinations Dubai = new Destinations("South_indian place","international");
+                setDestinations("Dubai");
                 return Dubai;
 
             case 3:
-                Destination Bali = new Destination("South_indian place","international");
-                setDestination("Bali");
+                Destinations Bali = new Destinations("South_indian place","international");
+                setDestinations("Bali");
                 return Bali;
             case 4:
-                Destination Goa = new Destination("South_indian place","national");
-                setDestination("Goa");
+                Destinations Goa = new Destinations("South_indian place","national");
+                setDestinations("Goa");
                 return Goa;
             default:
                 System.out.println("Enter valid input...!!!");
 
         }
 
-    Destination Kerela = new Destination("South_indian place","national");
+    Destinations Kerela = new Destinations("South_indian place","national");
     return Kerela;
     }
 

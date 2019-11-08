@@ -1,5 +1,6 @@
 package com.trip_package;
 
+
 class Flight {
     private String company;
     private String fd_departure_time;
@@ -70,14 +71,3 @@ class Flight {
 
 }
 
-class Select_Flight
-{
-    public Flight select_flight()
-    {
-        Flight f = new Flight();
-
-
-
-        return f;
-    }
-}

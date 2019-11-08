@@ -1,10 +1,10 @@
 package com.tirthhihoriya;
 
 
-class Destination
+public class Destinations
 {
 
-    public Destination(String description, String category) {
+    public Destinations(String description, String category) {
         setDescription(description);
         setCategory(category);
     }
