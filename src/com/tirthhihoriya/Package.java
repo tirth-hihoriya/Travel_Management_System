@@ -6,6 +6,13 @@ class Package{
     private String facilities;
     private int total_price;
 
+    public Package(String describe, int nights, String facilities, int total_price) {
+        this.describe = describe;
+        this.nights = nights;
+        this.facilities = facilities;
+        this.total_price = total_price;
+    }
+
     public String getDescribe() {
         return describe;
     }
@@ -42,16 +49,7 @@ class Package{
 
     }
 
-    Package(String describe,
-            int nights,
-            String facilities,
-            int total_price)
-    {
-        this.describe = describe;
-        this.nights =nights;
-        this.facilities =facilities;
-        this.total_price =total_price;
-    }
+
 
 }
 

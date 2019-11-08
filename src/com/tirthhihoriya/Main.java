@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sca = new Scanner(System.in);
 
+        System.out.println("\n________________WELCOME TO TRIP_World______________\n");
+
         Holiday h1 = new Holiday();
         Destination d = h1.menu();
         System.out.println(h1.getDestination());
@@ -19,10 +21,10 @@ public class Main {
 
         Select_package sp = new Select_package();
         Package pack = sp.selection(h1.getDestination(),bf.getBudget(),nf.getNights());
-        System.out.println(pack.getDescribe());
+        System.out.println("\n" + pack.getDescribe());
         System.out.println(pack.getFacilities());
         System.out.println(pack.getNights());
-        System.out.println(pack.getTotal_price());
+        System.out.println("₹ " + pack.getTotal_price());
 
 
         int c;
@@ -60,10 +62,10 @@ public class Main {
                 case 4:
 
                     pack = sp.selection(h1.getDestination(),bf.getBudget(),nf.getNights());
-                    System.out.println(pack.getDescribe());
+                    System.out.println("\n" + pack.getDescribe());
                     System.out.println(pack.getFacilities());
                     System.out.println(pack.getNights());
-                    System.out.println(pack.getTotal_price());
+                    System.out.println("₹ " + pack.getTotal_price());
                     break;
 
 
@@ -73,9 +75,5 @@ public class Main {
 
         }while(c !=0);
 
-
-
-//        Select_package_Goa g = new Select_package_Goa();
-//        g.selection(g.getBudget(),g.getNights());
     }
 }
