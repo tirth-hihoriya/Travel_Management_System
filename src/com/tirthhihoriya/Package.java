@@ -55,12 +55,20 @@ class Package{
 
 class Select_package
 {
+    private int t_p_price;
 
+    public int getT_p_price() {
+        return t_p_price;
+    }
 
-    public Package selection(String destination,int budget,int night)
+    public void setT_p_price(int t_p_price) {
+        this.t_p_price = t_p_price;
+    }
+
+    public Package selection(String destination, int budget, int night)
     {
        Package p = new Package();
-        if(destination.equals("Kerela"))
+        if(destination.equals("Bali"))
         {
             if (budget == 1)   // 1: 25,00 to 50,000
             {
@@ -69,24 +77,25 @@ class Select_package
                     p = new Package("Amazing Holiday in Goa", 5, "Hotel + FLight + Transfer", 14890);
                 } else if (night == 2) // 2: 6 Night, 7 Days
                 {
-                    p = new Package("Romantic Holiday in Goa", 6, "Hotel + FLight + Transfer + Activities", 19362);
+                    p = new Package("Romantic Holiday in Goa", 6, "Hotel + FLight + Transfer", 19362);
                 } else   // 3: 7 Night, 8 Days
                 {
-                    p = new Package("Free Sightseeing - Goan Holiday with Family", 7, "Hotel + FLight + Transfer + Activities", 24570);
+                    p = new Package("Free Sightseeing - Goan Holiday with Family", 7, "Hotel + FLight + Transfer", 24570);
                 }
             } else if (budget == 2)  // 2: 50,001 to 75,000
             {
                 if (night == 1) {
-                    p = new Package("Amazing Holiday in Goa", 5, "Hotel + FLight + Transfer", 28570);
+                    p = new Package("Amazing Holiday in Goa", 5, "Hotel + FLight + Transfer", 54570);
                 } else if (night == 2) {
-                    p = new Package("Romantic Holiday in Goa", 6, "Hotel + FLight + Transfer + Activities", 34780);
+                    p = new Package("Romantic Holiday in Goa", 6, "Hotel + FLight + Transfer + Activities", 64780);
                 } else           // 3: 75,001 and above
                 {
-                    p = new Package("Free Sightseeing - Goan Holiday with Family", 7, "Hotel + FLight + Transfer + Activities", 45362);
+                    p = new Package("Free Sightseeing - Goan Holiday with Family", 7, "Hotel + FLight + Transfer + Activities", 70362);
                 }
 
             }
         }
+
     return p;
     }
 }

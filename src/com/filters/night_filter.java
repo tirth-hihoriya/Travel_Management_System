@@ -13,13 +13,13 @@ public class night_filter {
 
     public void setNights()
     {
-        System.out.println("--------- Set Number of NIGHTs ----------- ");
-        System.out.println("1: 5 Night, 6 Days");
+        System.out.println("\n\n********* Set Number of NIGHTs ********* ");
+        System.out.println("\n1: 5 Night, 6 Days");
         System.out.println("2: 6 Night, 7 Days");
         System.out.println("3: 7 Night, 8 Days");
 
 
-        System.out.print("Enter your choice : ");
+        System.out.print("\nEnter your choice : ");
         nights = sca.nextInt();
     }
 }
