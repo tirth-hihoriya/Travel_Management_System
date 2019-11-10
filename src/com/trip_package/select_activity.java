@@ -2,110 +2,91 @@ package com.trip_package;
 
 import java.util.Scanner;
 
-public class select_activity{
+public class select_activity extends basic_utility{
 
-    private int t_a_price;
+    public void select_activities(String dest,Package p) {
 
-    public int getT_a_price() {
-        return t_a_price;
-    }
-
-    public void setT_a_price(int t_a_price) {
-        this.t_a_price = t_a_price;
-    }
-
-
-    public Activities select_activities(String dest) {
-
-        Activities a = new Activities();
+        p.setT_a_price(0);
         if(dest.equals("Bali")) {
 
-            activities_Bali();
+            activities_Bali(p);
         }
         else if(dest.equals("Dubai")) {
-
+            activities_Dubai(p);
         }
         else if(dest.equals("Singapore")) {
-
+            activities_Singapore(p);
 
         }
         else if(dest.equals("Bhutan")) {
-
+            activities_Bhutan(p);
 
         }
-        return a;
+
 
 
     }
 
-    public void activities_Bali()
+    private void activities_Bali(Package p)
     {
-        Scanner sca = new Scanner(System.in);
+        final int n= 5;
+        Activities[] a = new Activities[n];
+        a[0] = new Activities("Party ",940,false);
+        a[1] = new Activities("Zecto",1940,false);
+        a[2] = new Activities("Party2",2940,false);
+        a[3] = new Activities("Zecto3",3940,false);
+        a[4] = new Activities("Party4",4940,false);
+
+        ask_choice(a,n,p);
+
+
+    }
+
+    private void activities_Dubai(Package p)
+    {
+        final int n= 5;
+        Activities[] a = new Activities[n];
+        a[0] = new Activities("Party ",940,false);
+        a[1] = new Activities("Zecto1",1940,false);
+        a[2] = new Activities("Party2",2940,false);
+        a[3] = new Activities("Zecto3",3940,false);
+        a[4] = new Activities("Party4",4940,false);
+
+        ask_choice(a,n,p);
+
+    }
+
+    private void activities_Singapore(Package p)
+    {
+        final int n= 5;
+        Activities[] a = new Activities[n];
+        a[0] = new Activities("Party ",940,false);
+        a[1] = new Activities("Party1",1940,false);
+        a[2] = new Activities("Zecto2",2940,false);
+        a[3] = new Activities("Party3",3940,false);
+        a[4] = new Activities("Zecto4",4940,false);
+
+        ask_choice(a,n,p);
+
+    }
+
+    private void activities_Bhutan(Package p)
+    {
 
         final int n= 5;
-        int c;
+
         Activities[] a = new Activities[n];
-        a[0] = new Activities("Party ",940,true);
+        a[0] = new Activities("Zecto ",940,false);
         a[1] = new Activities("Party1",1940,false);
         a[2] = new Activities("Party2",2940,false);
-        a[3] = new Activities("Party3",3940,true);
-        a[4] = new Activities("Party4",4940,true);
+        a[3] = new Activities("Zecto",3940,false);
+        a[4] = new Activities("Party4",4940,false);
 
-
-
-        do {
-            menu_activity(a,n);
-
-            System.out.print("Enter your choice : ");
-            c = sca.nextInt();                               // Inputmismatch Exception
-            switch(c)
-            {
-                case 1: add_remove_changes(a[0]); break;
-                case 2: add_remove_changes(a[1]); break;
-                case 3: add_remove_changes(a[2]); break;
-                case 4: add_remove_changes(a[3]); break;
-                case 5: add_remove_changes(a[4]); break;
-
-                default:
-                    System.out.println("Enter valid input");
-                    break;
-
-
-            }
-
-
-        }while(c!=0);
+        ask_choice(a,n,p);
 
     }
 
 
 
-
-
-
-
-    public void add_remove_changes(Activities a)
-    {
-        if(a.isIncludes())
-            a.setIncludes(false);
-        else
-            a.setIncludes(true);
-    }
-
-    public void menu_activity(Activities[] a,int n)
-    {
-        System.out.println();
-        System.out.println();
-        System.out.println("___________Exiting Activities___________");
-        System.out.println();
-        for(int i=0;i<n;i++)
-        {
-            if(a[i].isIncludes())
-                System.out.println("☑ " + (i+1) + ": " + a[i].getName() + "       -> ₹" + a[i].getA_price());
-            else
-                System.out.println("⬜ " + (i+1) + ": " + a[i].getName() + "       -> ₹" + a[i].getA_price());
-        }
-        System.out.println("\nEnter 0 to confirm all changes\n");
-    }
 
 }

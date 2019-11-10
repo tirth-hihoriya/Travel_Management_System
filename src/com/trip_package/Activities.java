@@ -5,12 +5,14 @@ public class Activities {
     private int a_price;
     private boolean includes;
 
+
+
     public Activities(String name, int a_price, boolean includes) {
         this.name = name;
         this.a_price = a_price;
         this.includes = includes;
     }
-    Activities(){}
+
 
     public boolean isIncludes() {
         return includes;
@@ -37,10 +39,6 @@ public class Activities {
         this.a_price = a_price;
     }
 
-    public void activity_details(Activities a)
-    {
-        System.out.println("<<<<<<<  " + a.name + "  >>>>>>>           -->  + ₹" +  a.a_price );
-    }
 
 }
 

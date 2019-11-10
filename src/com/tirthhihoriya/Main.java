@@ -1,6 +1,7 @@
 package com.tirthhihoriya;
 import com.filters.*;
 import com.trip_package.*;
+import com.trip_package.Package;
 
 
 
@@ -29,10 +30,10 @@ public class Main {
         Select_package sp = new Select_package();
         Package pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
         System.out.println();
-        System.out.println("\n" + pack.getDescribe());
+        System.out.println("\n" + pack.getName());
         System.out.println(pack.getFacilities());
         System.out.println(pack.getNights());
-        System.out.println("₹ " + pack.getTotal_price());
+        System.out.println("₹ " + pack.getBase_price());
 
 
         int c;
@@ -47,36 +48,63 @@ public class Main {
                     h1 = new Holiday();
                     d = h1.menu();
                     System.out.println(h1.getDestinations());
+                    pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
+
                     break;
                 case 2:
 
                     bf.setBudget();
+                    pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
                     break;
 
                 case 3:
 
                     nf.setNights();
+                    pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
                     break;
 
 
                 case 4:
 
                     pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
-                    System.out.println("\n" + pack.getDescribe());
-                    System.out.println(pack.getFacilities());
-                    System.out.println(pack.getNights());
-                    System.out.println("₹ " + pack.getTotal_price());
                     break;
 
                 case 5:
                     Select_Flight sf = new Select_Flight();
-                    sf.select_flights(h1.getDestinations());
+                    sf.select_flights(h1.getDestinations(),pack);
 
                     break;
 
                 case 6:
                     select_activity sa = new select_activity();
-                    sa.select_activities(h1.getDestinations());
+                    sa.select_activities(h1.getDestinations(),pack);
+                    break;
+
+                case 7:
+                    System.out.println("\n\n--------------- Total Price   per person -------------");
+                    System.out.println();
+                    System.out.println("Base price = ₹" + pack.getBase_price());
+                    System.out.println("Activities price  = ₹" + pack.getT_a_price());
+                    System.out.println("Additional price(flight) =  ₹" + pack.getA_f_price());
+                    System.out.println();
+                    System.out.println("Final price =  ₹" + (pack.getBase_price()+ pack.getT_a_price()+pack.getA_f_price()));
+                    System.out.println("_________________________________________");
+                    break;
+
+                case 8:
+                    System.out.print("\n\nEnter number of members : ");
+                    int m = sca.nextInt();
+
+
+                    System.out.println("\n\n_________________________________________");
+                    System.out.println("Final price =  ₹" + ((pack.getBase_price()+ pack.getT_a_price())+pack.getA_f_price())*m);
+                    System.out.println("____________________________________Thank you for visiting_____\n\n");
+                    break;
+
+                default:
+                    System.out.print("\nEnter valid input...!!!");
+
+
 
 
 
@@ -109,10 +137,10 @@ public class Main {
         System.out.println("         2 to change BUDGET_filter ₹");
         System.out.println("         3 to change NIGHTs_filter");
         System.out.println("         4 to change trip Package");
-        System.out.println("         5 to select flight  ✈");
-        System.out.println("         6 to add/remove Activities  \n");
-        System.out.println("         7 to Book now");
-
+        System.out.println("         5 to change flight  ✈");
+        System.out.println("         6 to add/remove Activities  ");
+        System.out.println("         7 to see total price");
+        System.out.println("         8 to confirm booking");
 
         System.out.println("         0 to Exit");
         System.out.println("-------------------------------------------");
