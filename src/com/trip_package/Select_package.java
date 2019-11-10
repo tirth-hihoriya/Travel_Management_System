@@ -30,7 +30,7 @@ public class Select_package {
     private Package packages_Bali(int budget, int night) {
         Scanner sca = new Scanner(System.in);
 
-        final int n = 11;
+        final int n = 13;
         int c;
 
         Package[] p = new Package[n];

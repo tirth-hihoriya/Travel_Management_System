@@ -92,7 +92,7 @@ public class Main {
                     break;
 
                 case 8:
-                    System.out.print("\n\nEnter number of members : ");
+                    System.out.print("\n\nEnter number of members \uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66 : ");
                     int m = sca.nextInt();
 
 
