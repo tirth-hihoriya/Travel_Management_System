@@ -35,7 +35,7 @@ public class basic_utility {
                 System.out.println("\n ◯ "  + (i+1));
             flight_details(a[i]);
         }
-        System.out.println("\nEnter 0 to confirm all changes\n");
+
     }
 
     public void flight_details(Flight f)
@@ -77,27 +77,31 @@ public class basic_utility {
 
 
         int c;
-        do {
+
             menu(a,n);
 
-            System.out.print("Enter your choice : ");
+            System.out.print("\nEnter your choice : ");
             c = sca.nextInt();                 // Inputmismatch Exception
 
-
+            boolean flag = false;
             for(int i=0;i<n;i++)
             {
                 if(c-1==i)
                     add_remove_changes(p,a[c-1]);
-                else if(c>n && c<1)
-                    System.out.println("Enter valid input...!!!");
+                else if(c>n ||  c<1)
+                    flag=true;
+
 
             }
+            if(flag)
+                System.out.println("Enter valid input...!!!");
+
             for(int i=0;i<n;i++)
             {
                 if(c-1!=i)
                     a[i].setIncludes(false);
             }
-        }while(c!=0);
+
     }
 
 

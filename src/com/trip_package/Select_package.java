@@ -147,6 +147,8 @@ public class Select_package {
     private void menu(Package[] a, int budget, int night, int n) {
         System.out.println();
         System.out.println();
+        System.out.println();
+        System.out.println();
         System.out.println("___________Amazing Packages___________");
         System.out.println();
         boolean flag=true;

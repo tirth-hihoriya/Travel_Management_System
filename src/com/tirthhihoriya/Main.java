@@ -18,7 +18,7 @@ public class Main {
         Holiday h1 = new Holiday();
         Destinations d = h1.menu();
         System.out.println(h1.getDestinations());
-        System.out.println("\n ---------------------------------------------------------");
+        System.out.println("\n\n\n ---------------------------------------------------------");
         System.out.println(" |  ++++++++++++++++++  SET FILTERS  ++++++++++++++++++  |");
         System.out.println(" ---------------------------------------------------------");
         budget_filter bf = new budget_filter();
@@ -30,11 +30,8 @@ public class Main {
         Select_package sp = new Select_package();
         Package pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
         System.out.println();
-        System.out.println("\n" + pack.getName());
-        System.out.println(pack.getFacilities());
-        System.out.println(pack.getNights());
-        System.out.println("₹ " + pack.getBase_price());
-
+        System.out.println();
+        System.out.println();
 
         int c;
         do{
@@ -81,24 +78,26 @@ public class Main {
                     break;
 
                 case 7:
-                    System.out.println("\n\n--------------- Total Price   per person -------------");
+                    System.out.println("\n\n\n\n\t\t\t\t\t\t$$$$$$$$$$$$$$$$$$$$$$      Total Price   -per person      $$$$$$$$$$$$$$$$$$$$$$");
                     System.out.println();
-                    System.out.println("Base price = ₹" + pack.getBase_price());
-                    System.out.println("Activities price  = ₹" + pack.getT_a_price());
-                    System.out.println("Additional price(flight) =  ₹" + pack.getA_f_price());
+                    System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price());
+                    System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price());
+                    System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price());
                     System.out.println();
-                    System.out.println("Final price =  ₹" + (pack.getBase_price()+ pack.getT_a_price()+pack.getA_f_price()));
-                    System.out.println("_________________________________________");
+                    System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                    System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price()+ pack.getT_a_price()+pack.getA_f_price()));
+                    System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
                     break;
 
                 case 8:
-                    System.out.print("\n\nEnter number of members \uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66 : ");
+                    System.out.print("\n\n\t\t\t\t\t\tEnter number of members \uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66 : ");
                     int m = sca.nextInt();
 
 
-                    System.out.println("\n\n_________________________________________");
-                    System.out.println("Final price =  ₹" + ((pack.getBase_price()+ pack.getT_a_price())+pack.getA_f_price())*m);
-                    System.out.println("____________________________________Thank you for visiting_____\n\n");
+                    System.out.println("\n\n\t\t\t\t\t\t_________________________________________________________________________");
+                    System.out.println("\t\t\t\t\t\t\t\tFinal price =  ₹" + ((pack.getBase_price()+ pack.getT_a_price())+pack.getA_f_price())*m);
+                    System.out.println("\t\t\t\t\t\t__________________________________________________Thank you for visiting_____\n\n");
+                    c=0;
                     break;
 
                 default:
@@ -132,7 +131,7 @@ public class Main {
 
     public static void menu()
     {
-        System.out.print("\n____________________________________________");
+        System.out.print("\n\n\n____________________________________________");
         System.out.println("\n➤ Enter 1 to change Destinations");
         System.out.println("         2 to change BUDGET_filter ₹");
         System.out.println("         3 to change NIGHTs_filter");
