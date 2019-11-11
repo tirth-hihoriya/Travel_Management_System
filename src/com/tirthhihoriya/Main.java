@@ -4,7 +4,6 @@ import com.trip_package.*;
 import com.trip_package.Package;
 
 
-
 import java.util.Scanner;
 
 public class Main {
@@ -18,9 +17,9 @@ public class Main {
         Holiday h1 = new Holiday();
         Destinations d = h1.menu();
         System.out.println(h1.getDestinations());
-        System.out.println("\n\n\n ---------------------------------------------------------");
-        System.out.println(" |  ++++++++++++++++++  SET FILTERS  ++++++++++++++++++  |");
-        System.out.println(" ---------------------------------------------------------");
+        System.out.println("\n\n\n\t\t\t\t\t ---------------------------------------------------------");
+        System.out.println("\t\t\t\t\t |  ++++++++++++++++++  SET FILTERS  ++++++++++++++++++  |");
+        System.out.println("\t\t\t\t\t ---------------------------------------------------------");
         budget_filter bf = new budget_filter();
         bf.setBudget();
 
