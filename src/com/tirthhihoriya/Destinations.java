@@ -1,7 +1,9 @@
 package com.tirthhihoriya;
 
 
-public class Destinations
+import java.io.Serializable;
+
+public class Destinations implements Serializable
 {
     private String description;
 

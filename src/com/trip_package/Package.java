@@ -1,7 +1,9 @@
 package com.trip_package;
 
 
-public class Package{
+import java.io.Serializable;
+
+public class Package implements Serializable {
     private String name;
     private int nights;
     private String facilities;

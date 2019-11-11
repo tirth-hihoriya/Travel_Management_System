@@ -15,7 +15,7 @@ class Holiday
         this.Destinations = Destinations;
     }
 
-    public Destinations menu()
+    public void menu()
     {
         int dest;
         Scanner sca = new Scanner(System.in);
@@ -32,30 +32,20 @@ class Holiday
         switch(dest)
         {
             case 1:
-                Destinations Bali = new Destinations("South_indian place");
                 setDestinations("Bali");
-                return Bali;
             case 2:
-                Destinations Dubai = new Destinations("South_indian place");
                 setDestinations("Dubai");
-                return Dubai;
 
             case 3:
-                Destinations Singapore = new Destinations("South_indian place");
                 setDestinations("Singapore\n");
-                return Singapore
                         ;
             case 4:
-                Destinations Bhutan = new Destinations("South_indian place");
                 setDestinations("Bhutan");
-                return Bhutan;
             default:
                 System.out.println("Enter valid input...!!!");
 
         }
 
-    Destinations Kerela = new Destinations("South_indian place");
-    return Kerela;
     }
 
 }

@@ -3,118 +3,237 @@ import com.filters.*;
 import com.trip_package.*;
 import com.trip_package.Package;
 
+import java.io.*;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main  {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sca = new Scanner(System.in);
-
+        Login u = new Login();
         display_title();
 
+        System.out.println("\n➤ Enter 1 to LOGIN   for existing user");
+        System.out.println("         2 to REGISTER   for new user");
+        int a = sca.nextInt();
+    do{
+        if (a == 2) {
+            u.register(u);
+            Holiday h1 = new Holiday();
+            h1.menu();
+            System.out.println(h1.getDestinations());
+            System.out.println("\n\n\n\t\t\t\t\t ---------------------------------------------------------");
+            System.out.println("\t\t\t\t\t |  ++++++++++++++++++  SET FILTERS  ++++++++++++++++++  |");
+            System.out.println("\t\t\t\t\t ---------------------------------------------------------");
+            budget_filter bf = new budget_filter();
+            bf.setBudget();
 
-        Holiday h1 = new Holiday();
-        Destinations d = h1.menu();
-        System.out.println(h1.getDestinations());
-        System.out.println("\n\n\n\t\t\t\t\t ---------------------------------------------------------");
-        System.out.println("\t\t\t\t\t |  ++++++++++++++++++  SET FILTERS  ++++++++++++++++++  |");
-        System.out.println("\t\t\t\t\t ---------------------------------------------------------");
-        budget_filter bf = new budget_filter();
-        bf.setBudget();
+            night_filter nf = new night_filter();
+            nf.setNights();
 
-        night_filter nf = new night_filter();
-        nf.setNights();
+            Select_package sp = new Select_package();
+            Package pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+            System.out.println();
+            System.out.println();
+            System.out.println();
 
-        Select_package sp = new Select_package();
-        Package pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
-        System.out.println();
-        System.out.println();
-        System.out.println();
+            int c;
+            do {
+                menu();
 
-        int c;
-        do{
-            menu();
+                System.out.print("Enter your choice : ");
+                c = sca.nextInt();
+                switch (c) {
+                    case 1:
+                        h1 = new Holiday();
+                        h1.menu();
+                        System.out.println(h1.getDestinations());
+                        pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
 
-            System.out.print("Enter your choice : ");
-            c = sca.nextInt();
-            switch(c)
-            {
-                case 1:
-                    h1 = new Holiday();
-                    d = h1.menu();
-                    System.out.println(h1.getDestinations());
-                    pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
+                        break;
+                    case 2:
 
-                    break;
-                case 2:
+                        bf.setBudget();
+                        pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+                        break;
 
-                    bf.setBudget();
-                    pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
-                    break;
+                    case 3:
 
-                case 3:
-
-                    nf.setNights();
-                    pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
-                    break;
-
-
-                case 4:
-
-                    pack = sp.selection(h1.getDestinations(),bf.getBudget(),nf.getNights());
-                    break;
-
-                case 5:
-                    Select_Flight sf = new Select_Flight();
-                    sf.select_flights(h1.getDestinations(),pack);
-
-                    break;
-
-                case 6:
-                    select_activity sa = new select_activity();
-                    sa.select_activities(h1.getDestinations(),pack);
-                    break;
-
-                case 7:
-                    System.out.println("\n\n\n\n\t\t\t\t\t\t$$$$$$$$$$$$$$$$$$$$$$      Total Price   -per person      $$$$$$$$$$$$$$$$$$$$$$");
-                    System.out.println();
-                    System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price());
-                    System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price());
-                    System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price());
-                    System.out.println();
-                    System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
-                    System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price()+ pack.getT_a_price()+pack.getA_f_price()));
-                    System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
-                    break;
-
-                case 8:
-                    System.out.print("\n\n\t\t\t\t\t\tEnter number of members \uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66 : ");
-                    int m = sca.nextInt();
+                        nf.setNights();
+                        pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+                        break;
 
 
-                    System.out.println("\n\n\t\t\t\t\t\t_________________________________________________________________________");
-                    System.out.println("\t\t\t\t\t\t\t\tFinal price =  ₹" + ((pack.getBase_price()+ pack.getT_a_price())+pack.getA_f_price())*m);
-                    System.out.println("\t\t\t\t\t\t__________________________________________________Thank you for visiting_____\n\n");
-                    c=0;
-                    break;
+                    case 4:
 
-                default:
-                    System.out.print("\nEnter valid input...!!!");
+                        pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+                        break;
+
+                    case 5:
+                        Select_Flight sf = new Select_Flight();
+                        sf.select_flights(h1.getDestinations(), pack);
+
+                        break;
+
+                    case 6:
+                        select_activity sa = new select_activity();
+                        sa.select_activities(h1.getDestinations(), pack);
+                        break;
+
+                    case 7:
+                        System.out.println("\n\n\n\n\t\t\t\t\t\t$$$$$$$$$$$$$$$$$$$$$$      Total Price   -per person      $$$$$$$$$$$$$$$$$$$$$$");
+                        System.out.println();
+                        System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price());
+                        System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price());
+                        System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price());
+                        System.out.println();
+                        System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                        System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price() + pack.getT_a_price() + pack.getA_f_price()));
+                        System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                        break;
+
+                    case 8:
+                        System.out.print("\n\n\t\t\t\t\t\tEnter number of members \uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66 : ");
+                        int m = sca.nextInt();
+
+
+                        System.out.println("\n\n\t\t\t\t\t\t_________________________________________________________________________");
+                        System.out.println("\t\t\t\t\t\t\t\tFinal price =  ₹" + ((pack.getBase_price() + pack.getT_a_price()) + pack.getA_f_price()) * m);
+                        System.out.println("\t\t\t\t\t\t__________________________________________________Thank you for visiting_____\n\n");
+                        c = 0;
+
+                        try {
+                            FileOutputStream fo = new FileOutputStream("./" + u.uid + "/package.txt");
+                            ObjectOutputStream out = new ObjectOutputStream(fo);
+                            out.writeObject(pack);
+                            out.close();
+                            fo.close();
+
+                            write_file(u,"destination",h1.getDestinations());
+
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                        break;
+
+                    default:
+                        System.out.print("\nEnter valid input...!!!");
+
+
+                }
+
+            } while (c != 0);
+
+        } else if (a == 1) {
+            boolean flag = u.login(u);
+            if (flag) {
+                Holiday h1 = new Holiday();
+                budget_filter bf = new budget_filter();
+                night_filter nf = new night_filter();
+                Select_package sp = new Select_package();
+                Package pack = null;
+                try {
+                    FileInputStream fi = new FileInputStream("./" + u.uid + "/package.txt");
+                    ObjectInputStream in = new ObjectInputStream(fi);
+                    pack = (Package) in.readObject();
+                    in.close();
+                    fi.close();
+
+                    h1.setDestinations(read_file(u,"destination"));
+
+                } catch (Exception e) {
+                    System.out.println("___________exception____________");
+                }
+
+                System.out.println();
+                System.out.println();
+                System.out.println();
+
+                int c;
+                do {
+                    menu();
+
+                    System.out.print("Enter your choice : ");
+                    c = sca.nextInt();
+                    switch (c) {
+                        case 1:
+                            h1 = new Holiday();
+                            h1.menu();
+                            System.out.println(h1.getDestinations());
+                            pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+
+                            break;
+                        case 2:
+
+                            bf.setBudget();
+                            pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+                            break;
+
+                        case 3:
+
+                            nf.setNights();
+                            pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+                            break;
+
+
+                        case 4:
+
+                            pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
+                            break;
+
+                        case 5:
+                            Select_Flight sf = new Select_Flight();
+                            sf.select_flights(h1.getDestinations(), pack);
+
+                            break;
+
+                        case 6:
+                            select_activity sa = new select_activity();
+                            sa.select_activities(h1.getDestinations(), pack);
+                            break;
+
+                        case 7:
+                            System.out.println("\n\n\n\n\t\t\t\t\t\t$$$$$$$$$$$$$$$$$$$$$$      Total Price   -per person      $$$$$$$$$$$$$$$$$$$$$$");
+                            System.out.println();
+                            System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price());
+                            System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price());
+                            System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price());
+                            System.out.println();
+                            System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                            System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price() + pack.getT_a_price() + pack.getA_f_price()));
+                            System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                            break;
+
+                        case 8:
+                            System.out.print("\n\n\t\t\t\t\t\tEnter number of members \uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66 : ");
+                            int m = sca.nextInt();
+
+
+                            System.out.println("\n\n\t\t\t\t\t\t_________________________________________________________________________");
+                            System.out.println("\t\t\t\t\t\t\t\tFinal price =  ₹" + ((pack.getBase_price() + pack.getT_a_price()) + pack.getA_f_price()) * m);
+                            System.out.println("\t\t\t\t\t\t__________________________________________________Thank you for visiting_____\n\n");
+                            c = 0;
+                            break;
+
+                        default:
+                            System.out.print("\nEnter valid input...!!!");
+
+
+                    }
+
+                } while (c != 0);
+            } else
+                System.out.println("ENter valid user name or password ...!!!");
+        }
+            else System.out.println("Enter valid inut...!!!");
+    }while(a!=1 && a!=2);
+}
 
 
 
-
-
-
-
-
-
-            }
-
-        }while(c !=0);
-
-    }
 
     public static void display_title()
     {
@@ -143,4 +262,24 @@ public class Main {
         System.out.println("         0 to Exit");
         System.out.println("-------------------------------------------");
     }
+
+    public static void write_file(Login u,String s,String w) throws IOException
+    {
+        File f= new File("./"+u.uid+"/"+s+".txt");
+        f.createNewFile();
+
+        BufferedWriter bf =new BufferedWriter (new FileWriter(f));
+        bf.write(w);
+        bf.close();
+    }
+
+    public static String read_file(Login u,String s) throws IOException
+    {
+
+        BufferedReader br = new BufferedReader(new FileReader("./"+u.uid+"/"+s+".txt"));
+        String read = br.readLine();
+        br.close();
+        return read;
+    }
+
 }
