@@ -7,15 +7,15 @@ class Holiday
     private String Destinations;
 
 
-    public String getDestinations() {
+    String getDestinations() {
         return Destinations;
     }
 
-    public void setDestinations(String Destinations) {
+    void setDestinations(String Destinations) {
         this.Destinations = Destinations;
     }
 
-    public void menu()
+    void menu()
     {
         int dest;
         Scanner sca = new Scanner(System.in);
@@ -33,14 +33,17 @@ class Holiday
         {
             case 1:
                 setDestinations("Bali");
+                break;
             case 2:
                 setDestinations("Dubai");
+                break;
 
             case 3:
-                setDestinations("Singapore\n");
-                        ;
+                setDestinations("Singapore");
+                break;
             case 4:
                 setDestinations("Bhutan");
+                break;
             default:
                 System.out.println("Enter valid input...!!!");
 

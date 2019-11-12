@@ -1,25 +1,42 @@
 package com.trip_package;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Select_package {
+interface sp
+{
+    Package selection(String dest, int budget, int night);
+    void add_remove_changes(Package[] a, int c, int n);
+    void menu(Package[] a, int budget, int night, int n);
+
+
+}
+
+public class Select_package implements sp{
 
 
     public Package selection(String dest, int budget, int night) {
 
 
-        Package p = null;
-        if (dest.equals("Bali")) {
+        Package p;
+        switch (dest) {
+            case "Bali":
 
-            p = packages_Bali(budget, night);
-        } else if (dest.equals("Dubai")) {
-            p = packages_Dubai(budget, night);
-        } else if (dest.equals("Singapore")) {
-            p = packages_Singapore(budget, night);
+                p = packages_Bali(budget, night);
+                break;
+            case "Dubai":
+                p = packages_Dubai(budget, night);
+                break;
+            case "Singapore":
+                p = packages_Singapore(budget, night);
 
-        } else if (dest.equals("Bhutan")) {
-            p = packages_Bhutan(budget, night);
+                break;
+            case "Bhutan":
+                p = packages_Bhutan(budget, night);
 
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + dest);
         }
         return p;
 
@@ -30,30 +47,44 @@ public class Select_package {
     private Package packages_Bali(int budget, int night) {
         Scanner sca = new Scanner(System.in);
 
-        final int n = 13;
+        final int n = 20;
         int c;
 
         Package[] p = new Package[n];
 
         p[0] = new Package("Amazing hoiliday in Bali1", 5, "Hotel + FLight + Transfer ", 29780,false);
         p[1] = new Package("Amazing hoiliday in Bali2", 5, "Hotel + FLight + Transfer ", 34780,false);
-        p[2] = new Package("Amazing hoiliday in Bali3", 5, "Hotel + FLight + Transfer ", 42780,false);
-        p[3] = new Package("Amazing hoiliday in Bali4", 5, "Hotel + FLight + Transfer ", 63780,false);
-        p[4] = new Package("Amazing hoiliday in Bali5", 6, "Hotel + FLight + Transfer ", 71780,false);
-        p[5] = new Package("Amazing hoiliday in Bali6", 6, "Hotel + FLight + Transfer ", 71780,false);
+        p[2] = new Package("Amazing hoiliday in Bali3", 5, "Hotel + FLight + Transfer ", 45780,false);
+        p[3] = new Package("Amazing hoiliday in Bali4", 5, "Hotel + FLight + Transfer ", 53780,false);
+        p[4] = new Package("Amazing hoiliday in Bali5", 5, "Hotel + FLight + Transfer ", 68780,false);
+        p[5] = new Package("Amazing hoiliday in Bali6", 5, "Hotel + FLight + Transfer ", 71780,false);
         p[6] = new Package("Amazing hoiliday in Bali7", 6, "Hotel + FLight + Transfer ", 71780,false);
         p[7] = new Package("Amazing hoiliday in Bali8", 6, "Hotel + FLight + Transfer ", 71780,false);
-        p[8] = new Package("Amazing hoiliday in Bali9", 7, "Hotel + FLight + Transfer ", 75780,false);
-        p[9] = new Package("Amazing hoiliday in Bali10", 7, "Hotel + FLight + Transfer ", 78780,false);
-        p[10] = new Package("Amazing hoiliday in Bali11", 7, "Hotel + FLight + Transfer ", 81780,false);
-        p[11] = new Package("Amazing hoiliday in Bali12", 7, "Hotel + FLight + Transfer ", 86780,false);
-        p[12] = new Package("Amazing hoiliday in Bali13", 7, "Hotel + FLight + Transfer ", 91780,false);
+        p[8] = new Package("Amazing hoiliday in Bali9", 6, "Hotel + FLight + Transfer ", 75780,false);
+        p[9] = new Package("Amazing hoiliday in Bali10", 6, "Hotel + FLight + Transfer ", 78780,false);
+        p[10] = new Package("Amazing hoiliday in Bali11", 6, "Hotel + FLight + Transfer ", 81780,false);
+        p[11] = new Package("Amazing hoiliday in Bali12", 6, "Hotel + FLight + Transfer ", 86780,false);
+        p[12] = new Package("Amazing hoiliday in Bali13", 6, "Hotel + FLight + Transfer ", 91780,false);
+        p[13] = new Package("Amazing hoiliday in Bali14", 6, "Hotel + FLight + Transfer ", 91780,false);
+        p[14] = new Package("Amazing hoiliday in Bali15", 7, "Hotel + FLight + Transfer ", 91780,false);
+        p[15] = new Package("Amazing hoiliday in Bali16", 7, "Hotel + FLight + Transfer ", 91780,false);
+        p[16] = new Package("Amazing hoiliday in Bali17", 7, "Hotel + FLight + Transfer ", 91780,false);
+        p[17] = new Package("Amazing hoiliday in Bali18", 7, "Hotel + FLight + Transfer ", 91780,false);
+        p[18] = new Package("Amazing hoiliday in Bali19", 7, "Hotel + FLight + Transfer ", 91780,false);
+        p[19] = new Package("Amazing hoiliday in Bali20", 7, "Hotel + FLight + Transfer ", 91780,false);
 
         menu(p, budget, night, n);
 
-        System.out.print("\nEnter your choice : ");
-        c = sca.nextInt();
-        // Inputmismatch Exception
+        try{
+            System.out.print("\nEnter your choice : ");
+            c = sca.nextInt();
+        }
+        catch (InputMismatchException e)
+        {
+            c=0;
+            System.out.println("## Invalid input ...!!!");
+        }
+
         add_remove_changes(p, c - 1, n);
 
 
@@ -157,7 +188,7 @@ public class Select_package {
     }
 
 
-    private void add_remove_changes(Package[] a, int c, int n) {
+    public void add_remove_changes(Package[] a, int c, int n) {
         for (int i = 0; i < n; i++) {
             if (i == c)
 
@@ -167,7 +198,7 @@ public class Select_package {
         }
     }
 
-    private void menu(Package[] a, int budget, int night, int n) {
+    public void menu(Package[] a, int budget, int night, int n) {
         System.out.println();
         System.out.println();
         System.out.println();

@@ -3,6 +3,7 @@ import com.filters.*;
 import com.trip_package.*;
 import com.trip_package.Package;
 
+
 import java.io.*;
 
 import java.util.Scanner;
@@ -13,11 +14,12 @@ public class Main  {
         Scanner sca = new Scanner(System.in);
         Login u = new Login();
         display_title();
-
+        int a;
+        do{
         System.out.println("\n➤ Enter 1 to LOGIN   for existing user");
         System.out.println("         2 to REGISTER   for new user");
-        int a = sca.nextInt();
-    do{
+        a = sca.nextInt();
+    
         if (a == 2) {
             u.register(u);
             Holiday h1 = new Holiday();
@@ -128,8 +130,16 @@ public class Main  {
             } while (c != 0);
 
         } else if (a == 1) {
-            boolean flag = u.login(u);
-            if (flag) {
+            boolean flag;
+            do {
+                flag = u.login(u);
+                if(!flag) {
+                    System.out.println("________________________________________________________________________________________\n\n");
+                    System.out.println("Enter valid user name or password ...!!!");
+                }
+            }while(!flag);
+
+
                 Holiday h1 = new Holiday();
                 budget_filter bf = new budget_filter();
                 night_filter nf = new night_filter();
@@ -192,19 +202,27 @@ public class Main  {
 
                         case 6:
                             select_activity sa = new select_activity();
+                            if (pack == null) throw new AssertionError();
                             sa.select_activities(h1.getDestinations(), pack);
                             break;
 
                         case 7:
-                            System.out.println("\n\n\n\n\t\t\t\t\t\t$$$$$$$$$$$$$$$$$$$$$$      Total Price   -per person      $$$$$$$$$$$$$$$$$$$$$$");
-                            System.out.println();
-                            System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price());
-                            System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price());
-                            System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price());
-                            System.out.println();
-                            System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
-                            System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price() + pack.getT_a_price() + pack.getA_f_price()));
-                            System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                            try {
+                                System.out.println("\n\n\n\n\t\t\t\t\t\t$$$$$$$$$$$$$$$$$$$$$$      Total Price   -per person      $$$$$$$$$$$$$$$$$$$$$$");
+                                System.out.println();
+                                if (pack == null) throw new AssertionError();
+                                System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price());
+                                System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price());
+                                System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price());
+                                System.out.println();
+                                System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                                System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price() + pack.getT_a_price() + pack.getA_f_price()));
+                                System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                            }
+                            catch(Exception e)
+                            {
+                                System.out.println("_______exception_______");
+                            }
                             break;
 
                         case 8:
@@ -213,10 +231,14 @@ public class Main  {
 
 
                             System.out.println("\n\n\t\t\t\t\t\t_________________________________________________________________________");
+                            assert pack != null;
                             System.out.println("\t\t\t\t\t\t\t\tFinal price =  ₹" + ((pack.getBase_price() + pack.getT_a_price()) + pack.getA_f_price()) * m);
                             System.out.println("\t\t\t\t\t\t__________________________________________________Thank you for visiting_____\n\n");
                             c = 0;
                             break;
+
+                        case 0:
+                            c=0;
 
                         default:
                             System.out.print("\nEnter valid input...!!!");
@@ -225,8 +247,7 @@ public class Main  {
                     }
 
                 } while (c != 0);
-            } else
-                System.out.println("ENter valid user name or password ...!!!");
+
         }
             else System.out.println("Enter valid inut...!!!");
     }while(a!=1 && a!=2);
@@ -235,7 +256,7 @@ public class Main  {
 
 
 
-    public static void display_title()
+    private static void display_title()
     {
         System.out.println("\n\n________________________________________________   \uD83E\uDD29 Your Destinations is Waiting for you \uD83E\uDD29   ______________________________________________\n");
         System.out.println("__          __ ______  _        _____   ____   __  __  ______   _______  ____    _______  _____   _____  _____   __          __           _      _   ™");
@@ -247,7 +268,7 @@ public class Main  {
 
     }
 
-    public static void menu()
+    private static void menu()
     {
         System.out.print("\n\n\n____________________________________________");
         System.out.println("\n➤ Enter 1 to change Destinations");
@@ -263,17 +284,17 @@ public class Main  {
         System.out.println("-------------------------------------------");
     }
 
-    public static void write_file(Login u,String s,String w) throws IOException
+    private static void write_file(Login u, String s, String w) throws IOException
     {
         File f= new File("./"+u.uid+"/"+s+".txt");
-        f.createNewFile();
+        boolean newFile = f.createNewFile();
 
         BufferedWriter bf =new BufferedWriter (new FileWriter(f));
         bf.write(w);
         bf.close();
     }
 
-    public static String read_file(Login u,String s) throws IOException
+    private static String read_file(Login u, String s) throws IOException
     {
 
         BufferedReader br = new BufferedReader(new FileReader("./"+u.uid+"/"+s+".txt"));

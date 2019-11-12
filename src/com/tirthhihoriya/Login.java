@@ -3,12 +3,12 @@ package com.tirthhihoriya;
 import java.io.*;
 import java.util.Scanner;
 
-public class Login {
+class Login {
 
     String uid;
-    String pass;
+    private String pass;
 
-    public void register(Login u) throws IOException
+    void register(Login u) throws IOException
     {
         Scanner sca = new Scanner(System.in);
         System.out.println("\n\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -27,7 +27,7 @@ public class Login {
             System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
         File f3= new File("./"+u.uid+"/pass.txt");
-        f3.createNewFile();
+        final var newFile = f3.createNewFile();
 
         BufferedWriter bf =new BufferedWriter(new FileWriter(f3));
         bf.write(u.pass);
@@ -35,7 +35,7 @@ public class Login {
         bf.close();
     }
 
-    public boolean login(Login u) throws IOException
+    boolean login(Login u)
     {
         Scanner sca = new Scanner(System.in);
         int x;
@@ -46,18 +46,21 @@ public class Login {
         u.uid=sca.nextLine();
         System.out.print("\t\t\t\t\t\t\t\t\t\t\tPassword: ");
         u.pass=sca.nextLine();
-
-        File f5 =new File("./"+u.uid);
-        BufferedReader br = new BufferedReader(new FileReader("./"+u.uid+"/pass.txt"));
-        String read = br.readLine();
-        //System.out.println(read);
-        br.close();
-        System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-
-        if(f5.isDirectory()&&read.equals(u.pass))
-            return true;
-        else
+        File f;
+        String read;
+        try {
+            f = new File("./" + u.uid);
+            BufferedReader br = new BufferedReader(new FileReader("./" + u.uid + "/pass.txt"));
+            read = br.readLine();
+            //System.out.println(read);
+            br.close();
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        }
+        catch (Exception e)
+        {
             return false;
+        }
+        return f.isDirectory() && read.equals(u.pass);
     }
 
 }

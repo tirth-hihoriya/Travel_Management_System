@@ -2,9 +2,10 @@ package com.trip_package;
 
 import java.util.Scanner;
 
-public class basic_utility {
 
-    public void menu(Activities[] a,int n)
+class basic_utility {
+
+    private void menu(Activities[] a, int n)
     {
         System.out.println();
         System.out.println();
@@ -20,7 +21,7 @@ public class basic_utility {
         System.out.println("\nEnter 0 to confirm all changes\n");
     }
 
-    public void menu(Flight[] a,int n)
+    private void menu(Flight[] a, int n)
     {
         System.out.println();
         System.out.println();
@@ -38,7 +39,7 @@ public class basic_utility {
 
     }
 
-    public void flight_details(Flight f)
+    private void flight_details(Flight f)
     {
         System.out.println("\n                      <<<<<<<<<<   "+ f.getCompany() + "   >>>>>>>>>>");
         System.out.println();
@@ -47,7 +48,7 @@ public class basic_utility {
         System.out.println("Last day :  "+ f.getLd_departure_time() + " _________✈_________" + f.getLd_landing_time());
     }
 
-    public void ask_choice(Activities[] a, int n, Package p)
+    void ask_choice(Activities[] a, int n, Package p)
     {
         Scanner sca = new Scanner(System.in);
 
@@ -70,7 +71,7 @@ public class basic_utility {
         }while(c!=0);
     }
 
-    public void ask_choice(Flight[] a, int n, Package p)
+    void ask_choice(Flight[] a, int n, Package p)
     {
         Scanner sca = new Scanner(System.in);
 
@@ -105,7 +106,7 @@ public class basic_utility {
     }
 
 
-    public void add_remove_changes(Package p, Activities a)
+    private void add_remove_changes(Package p, Activities a)
     {
         if(a.isIncludes()) {
             a.setIncludes(false);
@@ -118,7 +119,7 @@ public class basic_utility {
     }
 
 
-    public void add_remove_changes(Package p, Flight a)
+    private void add_remove_changes(Package p, Flight a)
     {
 
         if(a.isIncludes()) {
