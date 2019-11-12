@@ -6,9 +6,12 @@ import java.util.Scanner;
 interface sp
 {
     Package selection(String dest, int budget, int night);
+    Package packages_Bali(int budget, int night);
+    Package packages_Dubai(int budget, int night);
+    Package packages_Singapore(int budget, int night);
+    Package packages_Bhutan(int budget, int night);
     void add_remove_changes(Package[] a, int c, int n);
     void menu(Package[] a, int budget, int night, int n);
-
 
 }
 
@@ -44,7 +47,7 @@ public class Select_package implements sp{
     }
 
 
-    private Package packages_Bali(int budget, int night) {
+    public Package packages_Bali(int budget, int night) {
         Scanner sca = new Scanner(System.in);
 
         final int n = 20;
@@ -91,7 +94,7 @@ public class Select_package implements sp{
         return p[c - 1];
     }
 
-    private Package packages_Dubai(int budget, int night) {
+    public Package packages_Dubai(int budget, int night) {
         Scanner sca = new Scanner(System.in);
 
         final int n = 13;
@@ -115,16 +118,24 @@ public class Select_package implements sp{
 
         menu(p, budget, night, n);
 
-        System.out.print("\nEnter your choice : ");
-        c = sca.nextInt();
-        // Inputmismatch Exception
+        do {
+            try {
+                System.out.print("\nEnter your choice : ");
+                c = sca.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input...!!!");
+                c = -1;
+            }
+        }while(c==-1);
+
+
         add_remove_changes(p, c - 1, n);
 
 
         return p[c - 1];
     }
 
-    private Package packages_Singapore(int budget, int night) {
+    public Package packages_Singapore(int budget, int night) {
         Scanner sca = new Scanner(System.in);
 
         final int n = 13;
@@ -147,16 +158,21 @@ public class Select_package implements sp{
         p[12] = new Package("Amazing hoiliday in Singapore13", 7, "Hotel + FLight + Transfer ", 91780,false);
 
         menu(p, budget, night, n);
+        do {
+            try {
+                System.out.print("\nEnter your choice : ");
+                c = sca.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input...!!!");
+                c = -1;
+            }
+        }while(c==-1);
 
-        System.out.print("\nEnter your choice : ");
-        c = sca.nextInt();
-        // Inputmismatch Exception
-        add_remove_changes(p, c - 1, n);
 
         return p[c - 1];
     }
 
-    private Package packages_Bhutan(int budget, int night) {
+    public Package packages_Bhutan(int budget, int night) {
         Scanner sca = new Scanner(System.in);
 
         final int n = 13;
@@ -179,9 +195,16 @@ public class Select_package implements sp{
         p[12] = new Package("Amazing hoiliday in Bhutan13", 7, "Hotel + FLight + Transfer ", 91780,false);
         menu(p, budget, night, n);
 
-        System.out.print("\nEnter your choice : ");
-        c = sca.nextInt();
-                                                                // Inputmismatch Exception
+        do {
+            try {
+                System.out.print("\nEnter your choice : ");
+                c = sca.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input...!!!");
+                c = -1;
+            }
+        }while(c==-1);
+
         add_remove_changes(p, c - 1, n);
 
         return p[c - 1];
@@ -218,7 +241,7 @@ public class Select_package implements sp{
 
         }
         if(flag)
-            System.out.println("No Packages found...!!  Change the filters");
+            System.out.println("No Packages found...!!  Change the filters  ");
         System.out.println("\n___________________________________________");
     }
 

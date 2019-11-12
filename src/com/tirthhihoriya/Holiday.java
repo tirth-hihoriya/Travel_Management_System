@@ -1,7 +1,18 @@
 package com.tirthhihoriya;
 
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+class OutOfRange extends Exception
+{
+    OutOfRange(String a)
+    {
+        super(a);
+    }
+}
+
+
 class Holiday
 {
     private String Destinations;
@@ -17,27 +28,34 @@ class Holiday
 
     void menu()
     {
-        int dest;
+        int c;
         Scanner sca = new Scanner(System.in);
-        do {
-            System.out.println("\n\n________________TRENDING Destinations______________\n");
 
-            try {
-                System.out.println("\n1: Bali");
-                System.out.println("2: Dubai");
-                System.out.println("3: Singapore");
-                System.out.println("4: Bhutan\n");
+            do {
+                System.out.println("\n\n________________TRENDING Destinations______________\n");
+                try {
+                    System.out.println("\n1: Bali");
+                    System.out.println("2: Dubai");
+                    System.out.println("3: Singapore");
+                    System.out.println("4: Bhutan\n");
 
-                System.out.print("Enter your choice : ");
 
-                dest = sca.nextInt();
-            } catch (Exception e) {
-                System.out.println("Invalid input...!!!");
-                dest=0;
-            }
-        }while(dest==0);
+                    System.out.print("\nEnter your choice : ");
+                    c = sca.nextInt();
+                    if(!(c>0 && c<=4))
+                        throw  new OutOfRange("Not in range");
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input...!!!");
+                    c = -1;
+                }
+                catch (OutOfRange e)
+                {
+                    System.out.println("Enter the integer between 1 & " + 4 + "...!!!" );
+                    c=-1;
+                }
+            }while(c==-1);
 
-        switch(dest)
+        switch(c)
         {
             case 1:
                 setDestinations("Bali");

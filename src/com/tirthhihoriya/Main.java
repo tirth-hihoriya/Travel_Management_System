@@ -1,12 +1,14 @@
 package com.tirthhihoriya;
 import com.filters.*;
 import com.trip_package.*;
-import com.trip_package.Package;
 
+import com.trip_package.Package;
 
 import java.io.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class Main  {
 
@@ -19,7 +21,23 @@ public class Main  {
         do{
         System.out.println("\n➤ Enter 1 to LOGIN   for existing user");
         System.out.println("         2 to REGISTER   for new user");
-        a = sca.nextInt();
+
+            do {
+                try {
+                    System.out.print("\nEnter your choice : ");
+                    a = sca.nextInt();
+                    if(!(a>=0 && a<=2))
+                        throw  new com.trip_package.OutOfRange("Not in range");
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input...!!!");
+                    a = -1;
+                }
+                catch (com.trip_package.OutOfRange e)
+                {
+                    System.out.println("Enter the integer 1 or " + 2 + "...!!!" );
+                    a=-1;
+                }
+            }while(a==-1);
     
         if (a == 2) {
             u.register(u);
@@ -306,4 +324,6 @@ public class Main  {
         return read;
     }
 
+
 }
+

@@ -6,23 +6,23 @@ public class select_activity extends basic_utility{
     public void select_activities(String dest,Package p) {
 
         p.setT_a_price(0);
-        if(dest.equals("Bali")) {
+        switch (dest) {
+            case "Bali":
 
-            activities_Bali(p);
+                activities_Bali(p);
+                break;
+            case "Dubai":
+                activities_Dubai(p);
+                break;
+            case "Singapore":
+                activities_Singapore(p);
+
+                break;
+            case "Bhutan":
+                activities_Bhutan(p);
+
+                break;
         }
-        else if(dest.equals("Dubai")) {
-            activities_Dubai(p);
-        }
-        else if(dest.equals("Singapore")) {
-            activities_Singapore(p);
-
-        }
-        else if(dest.equals("Bhutan")) {
-            activities_Bhutan(p);
-
-        }
-
-
 
     }
 

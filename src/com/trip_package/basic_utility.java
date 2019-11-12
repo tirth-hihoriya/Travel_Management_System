@@ -1,7 +1,15 @@
 package com.trip_package;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+class OutOfRange extends Exception
+{
+    OutOfRange(String a)
+    {
+        super(a);
+    }
+}
 
 class basic_utility {
 
@@ -56,8 +64,23 @@ class basic_utility {
         do {
             menu(a,n);
 
-            System.out.print("Enter your choice : ");
-            c = sca.nextInt();                 // Inputmismatch Exception
+            do {
+                try {
+                    System.out.print("\nEnter your choice : ");
+                    c = sca.nextInt();
+                    if(!(c>=0 && c<=n))
+                        throw  new OutOfRange("Not in range");
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input...!!!");
+                    c = -1;
+                }
+                catch (OutOfRange e)
+                {
+                    System.out.println("Enter the integer between 0 & " + n + "...!!!" );
+                    c=-1;
+                }
+            }while(c==-1);
+
 
 
             for(int i=0;i<n;i++)
@@ -81,10 +104,25 @@ class basic_utility {
 
             menu(a,n);
 
-            System.out.print("\nEnter your choice : ");
-            c = sca.nextInt();                 // Inputmismatch Exception
+        do {
+            try {
+                System.out.print("\nEnter your choice : ");
+                c = sca.nextInt();
+                if(!(c>0 && c<=n))
+                    throw  new OutOfRange("Not in range");
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input...!!!");
+                c = -1;
+            }
+            catch (OutOfRange e)
+            {
+                System.out.println("Enter the integer between 1 & " + n + "...!!!" );
+                c=-1;
+            }
+        }while(c==-1);
 
-            boolean flag = false;
+
+        boolean flag = false;
             for(int i=0;i<n;i++)
             {
                 if(c-1==i)
@@ -131,8 +169,5 @@ class basic_utility {
             p.setA_f_price(a.getF_price());
         }
     }
-
-
-
 
 }
