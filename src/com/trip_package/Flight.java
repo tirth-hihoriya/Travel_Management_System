@@ -10,7 +10,7 @@ class Flight {
     private int f_price;
     private boolean  includes;
 
-    public Flight(String company, String fd_departure_time, String fd_landing_time, String ld_departure_time, String ld_landing_time, int f_price, boolean includes) {
+    Flight(String company, String fd_departure_time, String fd_landing_time, String ld_departure_time, String ld_landing_time, int f_price, boolean includes) {
         this.company = company;
         this.fd_departure_time = fd_departure_time;
         this.fd_landing_time = fd_landing_time;
@@ -20,70 +20,40 @@ class Flight {
         this.includes = includes;
     }
 
-    public Flight()
-    {}
 
-    public int getf_price() {
-        return f_price;
-    }
-
-    public void setf_price(int f_price) {
-        this.f_price = f_price;
-    }
-
-    public String getCompany() {
+    String getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getFd_departure_time() {
+    String getFd_departure_time() {
         return fd_departure_time;
     }
 
-    public void setFd_departure_time(String fd_departure_time) {
-        this.fd_departure_time = fd_departure_time;
-    }
 
-    public String getFd_landing_time() {
+    String getFd_landing_time() {
         return fd_landing_time;
     }
 
-    public void setFd_landing_time(String fd_landing_time) {
-        this.fd_landing_time = fd_landing_time;
-    }
 
-    public String getLd_departure_time() {
+    String getLd_departure_time() {
         return ld_departure_time;
     }
 
-    public void setLd_departure_time(String ld_departure_time) {
-        this.ld_departure_time = ld_departure_time;
-    }
 
-    public String getLd_landing_time() {
+    String getLd_landing_time() {
         return ld_landing_time;
     }
 
-    public void setLd_landing_time(String ld_landing_time) {
-        this.ld_landing_time = ld_landing_time;
-    }
-
-    public int getF_price() {
+    int getF_price() {
         return f_price;
     }
 
-    public void setF_price(int f_price) {
-        this.f_price = f_price;
-    }
 
-    public boolean isIncludes() {
+    boolean isIncludes() {
         return includes;
     }
 
-    public void setIncludes(boolean includes) {
+    void setIncludes(boolean includes) {
         this.includes = includes;
     }
 

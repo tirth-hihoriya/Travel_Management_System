@@ -12,6 +12,7 @@ public class Main  {
 
     public static void main(String[] args) throws IOException {
         Scanner sca = new Scanner(System.in);
+
         Login u = new Login();
         display_title();
         int a;
@@ -173,6 +174,8 @@ public class Main  {
                             h1 = new Holiday();
                             h1.menu();
                             System.out.println(h1.getDestinations());
+                            bf.setBudget();
+                            nf.setNights();
                             pack = sp.selection(h1.getDestinations(), bf.getBudget(), nf.getNights());
 
                             break;

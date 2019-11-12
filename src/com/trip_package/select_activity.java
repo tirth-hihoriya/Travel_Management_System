@@ -1,6 +1,5 @@
 package com.trip_package;
 
-import java.util.Scanner;
 
 public class select_activity extends basic_utility{
 
