@@ -131,6 +131,20 @@ public class Main  {
                         System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
                         System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price() + pack.getT_a_price() + pack.getA_f_price()));
                         System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
+                        try {
+                            FileOutputStream fo = new FileOutputStream("./" + u.uid + "/package.txt");
+                            ObjectOutputStream out = new ObjectOutputStream(fo);
+                            out.writeObject(pack);
+                            out.close();
+                            fo.close();
+
+                            write_file(u,"destination",h1.getDestinations());
+
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
                         break;
 
                     case 8:
@@ -172,8 +186,8 @@ public class Main  {
             do {
                 flag = u.login(u);
                 if(!flag) {
-                    System.out.println("________________________________________________________________________________________\n\n");
-                    System.out.println("Enter valid user name or password ...!!!");
+                    System.out.println("______________________________________________________________________________________________________________________________________________________________________________________________________\n\n");
+                    System.out.println("# Enter valid user name or password ...!!!");
                 }
             }while(!flag);
 
