@@ -19,6 +19,7 @@ class Login {
         System.out.print("\t\t\t\t\t\t\t\t\t\t\tSet pass: ");
         u.pass=sca.nextLine();
 
+
         File f2= new File("./"+u.uid);
 
         if(f2.mkdirs())	//if subdir is not created handle it through exception;

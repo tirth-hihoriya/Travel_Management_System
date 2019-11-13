@@ -1,14 +1,13 @@
 package com.tirthhihoriya;
 import com.filters.*;
 import com.trip_package.*;
-
 import com.trip_package.Package;
+
 
 import java.io.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 
 public class Main  {
 
@@ -18,35 +17,37 @@ public class Main  {
         Login u = new Login();
         display_title();
         int a;
-        do{
-        System.out.println("\n➤ Enter 1 to LOGIN   for existing user");
-        System.out.println("         2 to REGISTER   for new user");
 
-            do {
-                try {
-                    System.out.print("\nEnter your choice : ");
-                    a = sca.nextInt();
-                    if(!(a>=0 && a<=2))
-                        throw  new com.trip_package.OutOfRange("Not in range");
-                } catch (InputMismatchException e) {
-                    System.out.println("Invalid input...!!!");
-                    a = -1;
-                }
-                catch (com.trip_package.OutOfRange e)
-                {
-                    System.out.println("Enter the integer 1 or " + 2 + "...!!!" );
-                    a=-1;
-                }
-            }while(a==-1);
-    
-        if (a == 2) {
+
+            do{
+                System.out.println("\n\n  ➤ Enter 1 to REGISTER   for new user");
+                System.out.println("           2 to LOGIN   for existing user");
+
+                do {
+
+                    try {
+                        System.out.print("\nEnter your choice : ");
+                        a = sca.nextInt();
+                        if(!(a>=0 && a<=2))
+                        {
+                            System.out.println("Invalid...!!   --> Enter 1 or 2 ");
+                        }
+
+                    } catch (InputMismatchException e) {
+                        sca.nextLine();
+                        System.out.println("Invalid input...!!!   --> Enter 1 or 2");
+                        a = -1;
+                    }
+
+                }while(a==-1);
+        if (a == 1) {
             u.register(u);
             Holiday h1 = new Holiday();
             h1.menu();
             System.out.println(h1.getDestinations());
-            System.out.println("\n\n\n\t\t\t\t\t ---------------------------------------------------------");
-            System.out.println("\t\t\t\t\t |  ++++++++++++++++++  SET FILTERS  ++++++++++++++++++  |");
-            System.out.println("\t\t\t\t\t ---------------------------------------------------------");
+            System.out.println("\n\n\n\t\t\t\t\t -------------------------------------------------------------");
+            System.out.println("\t\t\t\t\t |  ++++++++++++++++++     SET FILTERS    ++++++++++++++++++  |");
+            System.out.println("\t\t\t\t\t -------------------------------------------------------------");
             budget_filter bf = new budget_filter();
             bf.setBudget();
 
@@ -63,8 +64,26 @@ public class Main  {
             do {
                 menu();
 
-                System.out.print("Enter your choice : ");
-                c = sca.nextInt();
+                do {
+
+                    try {
+                        System.out.print("\nEnter your choice : ");
+                        c = sca.nextInt();
+                        if(!(c>=0 && c<=8))
+                        {
+                            System.out.println("Invalid...!!   --> Enter integer between 0 & 8 ");
+                        }
+
+                    } catch (InputMismatchException e) {
+                        sca.nextLine();
+                        System.out.println("Invalid input...!!!   --> Enter 1 or 2");
+                        c = -1;
+                    }
+
+                }while(c==-1);
+
+
+
                 switch (c) {
                     case 1:
                         h1 = new Holiday();
@@ -148,7 +167,7 @@ public class Main  {
 
             } while (c != 0);
 
-        } else if (a == 1) {
+        } else if (a == 2) {
             boolean flag;
             do {
                 flag = u.login(u);
@@ -184,9 +203,24 @@ public class Main  {
                 int c;
                 do {
                     menu();
+                    do {
 
-                    System.out.print("Enter your choice : ");
-                    c = sca.nextInt();
+                        try {
+                            System.out.print("\nEnter your choice : ");
+                            c = sca.nextInt();
+                            if(!(c>=0 && c<=8))
+                            {
+                                System.out.println("Invalid...!!   --> Enter 1 or 2 ");
+                            }
+
+                        } catch (InputMismatchException e) {
+                            sca.nextLine();
+                            System.out.println("Invalid input...!!!   --> Enter 1 or 2");
+                            c = -1;
+                        }
+
+                    }while(c==-1);
+
                     switch (c) {
                         case 1:
                             h1 = new Holiday();
@@ -256,6 +290,22 @@ public class Main  {
                             System.out.println("\t\t\t\t\t\t\t\tFinal price =  ₹" + ((pack.getBase_price() + pack.getT_a_price()) + pack.getA_f_price()) * m);
                             System.out.println("\t\t\t\t\t\t__________________________________________________Thank you for visiting_____\n\n");
                             c = 0;
+
+
+                            try {
+                                FileOutputStream fo = new FileOutputStream("./" + u.uid + "/package.txt");
+                                ObjectOutputStream out = new ObjectOutputStream(fo);
+                                out.writeObject(pack);
+                                out.close();
+                                fo.close();
+
+                                write_file(u,"destination",h1.getDestinations());
+
+                            }
+                            catch (Exception e)
+                            {
+                                e.printStackTrace();
+                            }
                             break;
 
                         case 0:
@@ -286,12 +336,16 @@ public class Main  {
         System.out.println("  \\ \\/  \\/ /  |  __|  | |     | |     | |  | || |\\/| ||  __|      | |  | |  | |    | |   |  _  /   | |  |  ___/    \\ \\/  \\/ // _ \\ | '__|| | / _` |");
         System.out.println("   \\  /\\  /   | |____ | |____ | |____ | |__| || |  | || |____     | |  | |__| |    | |   | | \\ \\  _| |_ | |         \\  /\\  /| (_) || |   | || (_| |");
         System.out.println("    \\/  \\/    |______||______| \\_____| \\____/ |_|  |_||______|    |_|   \\____/     |_|   |_|  \\_\\|_____||_|          \\/  \\/  \\___/ |_|   |_| \\__,_|");
-
+        System.out.println("_________________________________________________________________________________________________________________________________________________");
     }
 
     private static void menu()
     {
-        System.out.print("\n\n\n____________________________________________");
+
+        System.out.println("\n\n\n____________________________________________");
+        System.out.println("        ####    TRIP WORLD   ####");
+        System.out.println("____________________________________________");
+
         System.out.println("\n➤ Enter 1 to change Destinations");
         System.out.println("         2 to change BUDGET_filter ₹");
         System.out.println("         3 to change NIGHTs_filter");
@@ -301,7 +355,7 @@ public class Main  {
         System.out.println("         7 to see total price");
         System.out.println("         8 to confirm booking");
 
-        System.out.println("         0 to Exit");
+        System.out.println("\n         0 to Exit");
         System.out.println("-------------------------------------------");
     }
 
@@ -324,6 +378,4 @@ public class Main  {
         return read;
     }
 
-
 }
-

@@ -3,13 +3,6 @@ package com.trip_package;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class OutOfRange extends Exception
-{
-    OutOfRange(String a)
-    {
-        super(a);
-    }
-}
 
 class basic_utility {
 
@@ -17,7 +10,7 @@ class basic_utility {
     {
         System.out.println();
         System.out.println();
-        System.out.println("___________Exiting Activities___________");
+        System.out.println("___________####   Exiting Activities    ####___________");
         System.out.println();
         for(int i=0;i<n;i++)
         {
@@ -33,15 +26,12 @@ class basic_utility {
     {
         System.out.println();
         System.out.println();
-        System.out.println("___________Flight Options___________");
+        System.out.println("___________✈✈✈✈   Flight Options   ✈✈✈✈___________");
         System.out.println();
         for(int i=0;i<n;i++)
         {
-            if(a[i].isIncludes())
-                System.out.println("\n ⬤ "  + (i+1));
-
-            else
-                System.out.println("\n ◯ "  + (i+1));
+            System.out.println("\n  ✈"  + (i+1));
+            System.out.println();
             flight_details(a[i]);
         }
 
@@ -54,6 +44,8 @@ class basic_utility {
         System.out.println("First day :  "+ f.getFd_departure_time() + " _________✈_________" + f.getFd_landing_time() + "      ---> additional price: "+f.getF_price());
         System.out.println();
         System.out.println("Last day :  "+ f.getLd_departure_time() + " _________✈_________" + f.getLd_landing_time());
+        System.out.println();
+        System.out.println();
     }
 
     void ask_choice(Activities[] a, int n, Package p)
@@ -61,6 +53,9 @@ class basic_utility {
         Scanner sca = new Scanner(System.in);
 
         int c;
+
+
+
         do {
             menu(a,n);
 
@@ -71,12 +66,13 @@ class basic_utility {
                     if(!(c>=0 && c<=n))
                         throw  new OutOfRange("Not in range");
                 } catch (InputMismatchException e) {
+                    sca.nextLine();
                     System.out.println("Invalid input...!!!");
                     c = -1;
                 }
                 catch (OutOfRange e)
                 {
-                    System.out.println("Enter the integer between 0 & " + n + "...!!!" );
+                    System.out.println("Invalid ....!!!  -->Enter the integer between 0 & " + n);
                     c=-1;
                 }
             }while(c==-1);
@@ -92,6 +88,8 @@ class basic_utility {
 
             }
         }while(c!=0);
+
+
     }
 
     void ask_choice(Flight[] a, int n, Package p)
@@ -99,47 +97,45 @@ class basic_utility {
         Scanner sca = new Scanner(System.in);
 
 
-
         int c;
 
-            menu(a,n);
+        menu(a,n);
 
         do {
+
             try {
                 System.out.print("\nEnter your choice : ");
                 c = sca.nextInt();
-                if(!(c>0 && c<=n))
-                    throw  new OutOfRange("Not in range");
+                if(!(c>=0 && c<=n))
+                {
+                    System.out.println("Invalid...!!   --> Enter integer between 1 & " + n);
+                    c=-1;
+                }
+
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input...!!!");
+                sca.nextLine();
+                System.out.println("Invalid...!!   --> Enter integer between 1 & " + n);
                 c = -1;
             }
-            catch (OutOfRange e)
-            {
-                System.out.println("Enter the integer between 1 & " + n + "...!!!" );
-                c=-1;
-            }
+
         }while(c==-1);
 
+        for(int i=0;i<n;i++)
+        {
+            if(c-1!=i)
+                a[i].setIncludes(false);
+            else
+                a[i].setIncludes(true);
+        }
 
-        boolean flag = false;
-            for(int i=0;i<n;i++)
-            {
-                if(c-1==i)
-                    add_remove_changes(p,a[c-1]);
-                else if(c>n ||  c<1)
-                    flag=true;
+        for(int i=0;i<n;i++)
+        {
+            if(c-1==i)
+                add_remove_changes(p,a[c-1]);
+
+        }
 
 
-            }
-            if(flag)
-                System.out.println("Enter valid input...!!!");
-
-            for(int i=0;i<n;i++)
-            {
-                if(c-1!=i)
-                    a[i].setIncludes(false);
-            }
 
     }
 
@@ -169,5 +165,8 @@ class basic_utility {
             p.setA_f_price(a.getF_price());
         }
     }
+
+
+
 
 }

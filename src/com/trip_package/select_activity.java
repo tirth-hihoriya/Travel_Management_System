@@ -24,6 +24,8 @@ public class select_activity extends basic_utility{
                 break;
         }
 
+
+
     }
 
     private void activities_Bali(Package p)
@@ -31,7 +33,7 @@ public class select_activity extends basic_utility{
         final int n= 5;
         Activities[] a = new Activities[n];
         a[0] = new Activities("Party ",940,false);
-        a[1] = new Activities("Zecto",1940,false);
+        a[1] = new Activities("sky diving",1940,false);
         a[2] = new Activities("Party2",2940,false);
         a[3] = new Activities("Zecto3",3940,false);
         a[4] = new Activities("Party4",4940,false);
