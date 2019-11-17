@@ -124,12 +124,12 @@ public class Main  {
                     case 7:
                         System.out.println("\n\n\n\n\t\t\t\t\t\t$$$$$$$$$$$$$$$$$$$$$$      Total Price   -per person      $$$$$$$$$$$$$$$$$$$$$$");
                         System.out.println();
-                        System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price());
-                        System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price());
-                        System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price());
+                        System.out.println("\t\t\t\t\t\t\t\tBase price                = ₹" + pack.getBase_price()     +"            "+ pack.getName());
+                        System.out.println("\t\t\t\t\t\t\t\tActivities price          = ₹" + pack.getT_a_price()    + "               "+ pack.getFacilities());
+                        System.out.println("\t\t\t\t\t\t\t\tAdditional price(flight)  = ₹" + pack.getA_f_price()  );
                         System.out.println();
                         System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
-                        System.out.println("\t\t\t\t\t\t\t\tFinal price               = ₹" + (pack.getBase_price() + pack.getT_a_price() + pack.getA_f_price()));
+                        System.out.println("\t\t\t\t\t\t\t\tTotal price               = ₹" + (pack.getBase_price() + pack.getT_a_price() + pack.getA_f_price()));
                         System.out.println("\t\t\t\t\t\t_____________________________________________________________________");
                         try {
                             FileOutputStream fo = new FileOutputStream("./" + u.uid + "/package.txt");
@@ -153,7 +153,7 @@ public class Main  {
 
 
                         System.out.println("\n\n\t\t\t\t\t\t_________________________________________________________________________");
-                        System.out.println("\t\t\t\t\t\t\t\tFinal price =  ₹" + ((pack.getBase_price() + pack.getT_a_price()) + pack.getA_f_price()) * m);
+                        System.out.println("\t\t\t\t\t\t\t\tGrand total =  ₹" + ((pack.getBase_price() + pack.getT_a_price()) + pack.getA_f_price()) * m);
                         System.out.println("\t\t\t\t\t\t__________________________________________________Thank you for visiting_____\n\n");
                         c = 0;
 

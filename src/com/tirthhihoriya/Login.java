@@ -12,12 +12,23 @@ class Login {
     {
         Scanner sca = new Scanner(System.in);
         System.out.println("\n\n\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        int c;
+        do{
+            c=0;
+            System.out.println("\n\t\t\t\t\t\t\t\t\t\t\tWelcome! New User.\n\n");
 
-        System.out.println("\n\t\t\t\t\t\t\t\t\t\t\tWelcome! New User.\n\n");
-        System.out.print("\t\t\t\t\t\t\t\t\t\t\tSet User Id : ");
-        u.uid = sca.nextLine();
-        System.out.print("\t\t\t\t\t\t\t\t\t\t\tSet pass: ");
-        u.pass=sca.nextLine();
+            System.out.print("\t\t\t\t\t\t\t\t\t\t\tSet User Id : ");
+            u.uid = sca.nextLine();
+            System.out.print("\t\t\t\t\t\t\t\t\t\t\tSet pass: ");
+            u.pass=sca.nextLine();
+            if(u.uid.length()==0 || u.pass.length()==0 || u.uid.charAt(0)=='.')
+            {
+                System.out.println("Enter valid user id or password...!!!");
+                c=-1;
+            }
+
+
+        }while(c==-1);
 
 
         File f2= new File("./"+u.uid);

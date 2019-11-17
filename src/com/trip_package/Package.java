@@ -10,16 +10,26 @@ public class Package implements Serializable {
     private int base_price;
     private int budget_category;
     private boolean includes;
+    private boolean allowed;
     private int t_a_price;
     private int a_f_price;
 
-    public Package(String name, int nights, String facilities, int base_price, boolean includes) {
+    public Package(String name, int nights, String facilities, int base_price, boolean includes, boolean allowed) {
         this.name = name;
         this.nights = nights;
         this.facilities = facilities;
         this.base_price = base_price;
         this.budget_category = budget_category(base_price);
         this.includes = includes;
+        this.allowed = allowed;
+    }
+
+    boolean isAllowed() {
+        return allowed;
+    }
+
+    void setAllowed(boolean allowed) {
+        this.allowed = allowed;
     }
 
     public String getName() {
@@ -27,7 +37,7 @@ public class Package implements Serializable {
     }
 
 
-    public int getNights() {
+    int getNights() {
         return nights;
     }
 
@@ -40,15 +50,15 @@ public class Package implements Serializable {
         return base_price;
     }
 
-    public int getBudget_category() {
+    int getBudget_category() {
         return budget_category;
     }
 
-    public boolean isIncludes() {
+    boolean isIncludes() {
         return includes;
     }
 
-    public void setIncludes(boolean includes) {
+    void setIncludes(boolean includes) {
         this.includes = includes;
     }
 
@@ -57,7 +67,7 @@ public class Package implements Serializable {
         return t_a_price;
     }
 
-    public void setT_a_price(int t_a_price) {
+    void setT_a_price(int t_a_price) {
         this.t_a_price = t_a_price;
     }
 
@@ -65,7 +75,7 @@ public class Package implements Serializable {
         return a_f_price;
     }
 
-    public void setA_f_price(int a_f_price) {
+    void setA_f_price(int a_f_price) {
         this.a_f_price = a_f_price;
     }
 

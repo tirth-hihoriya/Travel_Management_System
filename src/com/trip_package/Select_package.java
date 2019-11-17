@@ -64,26 +64,26 @@ public class Select_package implements sp{
 
         Package[] p = new Package[n];
 
-        p[0] = new Package("Amazing holiday in Bali1", 5, "Hotel + FLight + Transfer ", 29780,false);
-        p[1] = new Package("Amazing holiday in Bali2", 5, "Hotel + FLight + Transfer ", 34780,false);
-        p[2] = new Package("Amazing holiday in Bali3", 5, "Hotel + FLight + Transfer ", 45780,false);
-        p[3] = new Package("Amazing holiday in Bali4", 5, "Hotel + FLight + Transfer ", 53780,false);
-        p[4] = new Package("Amazing holiday in Bali5", 5, "Hotel + FLight + Transfer ", 68780,false);
-        p[5] = new Package("Amazing holiday in Bali6", 5, "Hotel + FLight + Transfer ", 78780,false);
-        p[6] = new Package("Amazing holiday in Bali7", 6, "Hotel + FLight + Transfer ", 29780,false);
-        p[7] = new Package("Amazing holiday in Bali8", 6, "Hotel + FLight + Transfer ", 34780,false);
-        p[8] = new Package("Amazing holiday in Bali9", 6, "Hotel + FLight + Transfer ", 45780,false);
-        p[9] = new Package("Amazing holiday in Bali10", 6, "Hotel + FLight + Transfer ", 53780,false);
-        p[10] = new Package("Amazing holiday in Bali11", 6, "Hotel + FLight + Transfer ", 68780,false);
-        p[11] = new Package("Amazing holiday in Bali12", 6, "Hotel + FLight + Transfer ", 72780,false);
-        p[12] = new Package("Amazing holiday in Bali13", 6, "Hotel + FLight + Transfer ", 79780,false);
-        p[13] = new Package("Amazing holiday in Bali14", 6, "Hotel + FLight + Transfer ", 86780,false);
-        p[14] = new Package("Amazing holiday in Bali15", 7, "Hotel + FLight + Transfer ", 29780,false);
-        p[15] = new Package("Amazing holiday in Bali16", 7, "Hotel + FLight + Transfer ", 34780,false);
-        p[16] = new Package("Amazing holiday in Bali17", 7, "Hotel + FLight + Transfer ", 53780,false);
-        p[17] = new Package("Amazing holiday in Bali18", 7, "Hotel + FLight + Transfer ", 68780,false);
-        p[18] = new Package("Amazing holiday in Bali19", 7, "Hotel + FLight + Transfer ", 79780,false);
-        p[19] = new Package("Amazing holiday in Bali20", 7, "Hotel + FLight + Transfer ", 86780,false);
+        p[0] = new Package("Amazing holiday in Bali1", 5, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[1] = new Package("Amazing holiday in Bali2", 5, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[2] = new Package("Amazing holiday in Bali3", 5, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[3] = new Package("Amazing holiday in Bali4", 5, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[4] = new Package("Amazing holiday in Bali5", 5, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[5] = new Package("Amazing holiday in Bali6", 5, "Hotel + FLight + Transfer ", 78780,false, false);
+        p[6] = new Package("Amazing holiday in Bali7", 6, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[7] = new Package("Amazing holiday in Bali8", 6, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[8] = new Package("Amazing holiday in Bali9", 6, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[9] = new Package("Amazing holiday in Bali10", 6, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[10] = new Package("Amazing holiday in Bali11", 6, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[11] = new Package("Amazing holiday in Bali12", 6, "Hotel + FLight + Transfer ", 72780,false, false);
+        p[12] = new Package("Amazing holiday in Bali13", 6, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[13] = new Package("Amazing holiday in Bali14", 6, "Hotel + FLight + Transfer ", 86780,false, false);
+        p[14] = new Package("Amazing holiday in Bali15", 7, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[15] = new Package("Amazing holiday in Bali16", 7, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[16] = new Package("Amazing holiday in Bali17", 7, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[17] = new Package("Amazing holiday in Bali18", 7, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[18] = new Package("Amazing holiday in Bali19", 7, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[19] = new Package("Amazing holiday in Bali20", 7, "Hotel + FLight + Transfer ", 86780,false, false);
 
         menu(p, budget, night, n);
 
@@ -93,7 +93,7 @@ public class Select_package implements sp{
 
                 c = sca.nextInt();
 
-                if(!(c>0 && c<=n)) {
+                if(!(c>0 && c<=n) || !(p[c-1].isAllowed())) {
 
                     throw new OutOfRange("Not in range");
                 }
@@ -104,7 +104,7 @@ public class Select_package implements sp{
             }
             catch (OutOfRange e)
             {
-                System.out.println("Invalid ....!!!  -->Enter the integer between 1 & " + n);
+                System.out.println("Invalid ....!!!  --> Enter the valid integer.");
                 c=-1;
             }
         }while(c==-1);
@@ -123,26 +123,26 @@ public class Select_package implements sp{
 
         Package[] p = new Package[n];
 
-        p[0] = new Package("Amazing holiday in Dubai1", 5, "Hotel + FLight + Transfer ", 29780,false);
-        p[1] = new Package("Amazing holiday in Dubai2", 5, "Hotel + FLight + Transfer ", 34780,false);
-        p[2] = new Package("Amazing holiday in Dubai3", 5, "Hotel + FLight + Transfer ", 45780,false);
-        p[3] = new Package("Amazing holiday in Dubai4", 5, "Hotel + FLight + Transfer ", 53780,false);
-        p[4] = new Package("Amazing holiday in Dubai5", 5, "Hotel + FLight + Transfer ", 68780,false);
-        p[5] = new Package("Amazing holiday in Dubai6", 5, "Hotel + FLight + Transfer ", 78780,false);
-        p[6] = new Package("Amazing holiday in Dubai7", 6, "Hotel + FLight + Transfer ", 29780,false);
-        p[7] = new Package("Amazing holiday in Dubai8", 6, "Hotel + FLight + Transfer ", 34780,false);
-        p[8] = new Package("Amazing holiday in Dubai9", 6, "Hotel + FLight + Transfer ", 45780,false);
-        p[9] = new Package("Amazing holiday in Dubai10", 6, "Hotel + FLight + Transfer ", 53780,false);
-        p[10] = new Package("Amazing holiday in Dubai11", 6, "Hotel + FLight + Transfer ", 68780,false);
-        p[11] = new Package("Amazing holiday in Dubai12", 6, "Hotel + FLight + Transfer ", 72780,false);
-        p[12] = new Package("Amazing holiday in Dubai13", 6, "Hotel + FLight + Transfer ", 79780,false);
-        p[13] = new Package("Amazing holiday in Dubai14", 6, "Hotel + FLight + Transfer ", 86780,false);
-        p[14] = new Package("Amazing holiday in Dubai15", 7, "Hotel + FLight + Transfer ", 29780,false);
-        p[15] = new Package("Amazing holiday in Dubai16", 7, "Hotel + FLight + Transfer ", 34780,false);
-        p[16] = new Package("Amazing holiday in Dubai17", 7, "Hotel + FLight + Transfer ", 53780,false);
-        p[17] = new Package("Amazing holiday in Dubai18", 7, "Hotel + FLight + Transfer ", 68780,false);
-        p[18] = new Package("Amazing holiday in Dubai19", 7, "Hotel + FLight + Transfer ", 79780,false);
-        p[19] = new Package("Amazing holiday in Dubai20", 7, "Hotel + FLight + Transfer ", 86780,false);
+        p[0] = new Package("Amazing holiday in Dubai1", 5, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[1] = new Package("Amazing holiday in Dubai2", 5, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[2] = new Package("Amazing holiday in Dubai3", 5, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[3] = new Package("Amazing holiday in Dubai4", 5, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[4] = new Package("Amazing holiday in Dubai5", 5, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[5] = new Package("Amazing holiday in Dubai6", 5, "Hotel + FLight + Transfer ", 78780,false, false);
+        p[6] = new Package("Amazing holiday in Dubai7", 6, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[7] = new Package("Amazing holiday in Dubai8", 6, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[8] = new Package("Amazing holiday in Dubai9", 6, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[9] = new Package("Amazing holiday in Dubai10", 6, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[10] = new Package("Amazing holiday in Dubai11", 6, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[11] = new Package("Amazing holiday in Dubai12", 6, "Hotel + FLight + Transfer ", 72780,false, false);
+        p[12] = new Package("Amazing holiday in Dubai13", 6, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[13] = new Package("Amazing holiday in Dubai14", 6, "Hotel + FLight + Transfer ", 86780,false, false);
+        p[14] = new Package("Amazing holiday in Dubai15", 7, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[15] = new Package("Amazing holiday in Dubai16", 7, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[16] = new Package("Amazing holiday in Dubai17", 7, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[17] = new Package("Amazing holiday in Dubai18", 7, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[18] = new Package("Amazing holiday in Dubai19", 7, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[19] = new Package("Amazing holiday in Dubai20", 7, "Hotel + FLight + Transfer ", 86780,false, false);
         
     menu(p, budget, night, n);
 
@@ -152,7 +152,7 @@ public class Select_package implements sp{
 
                 c = sca.nextInt();
 
-                if(!(c>0 && c<=n)) {
+                if(!(c>0 && c<=n) || !(p[c-1].isAllowed())) {
 
                     throw new OutOfRange("Not in range");
                 }
@@ -163,7 +163,7 @@ public class Select_package implements sp{
             }
             catch (OutOfRange e)
             {
-                System.out.println("Invalid ....!!!  -->Enter the integer between 1 & " + n);
+                System.out.println("Invalid ....!!!  --> Enter the valid integer.");
                 c=-1;
             }
         }while(c==-1);
@@ -182,26 +182,26 @@ public class Select_package implements sp{
 
         Package[] p = new Package[n];
 
-        p[0] = new Package("Amazing holiday in Singapore1", 5, "Hotel + FLight + Transfer ", 29780,false);
-        p[1] = new Package("Amazing holiday in Singapore2", 5, "Hotel + FLight + Transfer ", 34780,false);
-        p[2] = new Package("Amazing holiday in Singapore3", 5, "Hotel + FLight + Transfer ", 45780,false);
-        p[3] = new Package("Amazing holiday in Singapore4", 5, "Hotel + FLight + Transfer ", 53780,false);
-        p[4] = new Package("Amazing holiday in Singapore5", 5, "Hotel + FLight + Transfer ", 68780,false);
-        p[5] = new Package("Amazing holiday in Singapore6", 5, "Hotel + FLight + Transfer ", 78780,false);
-        p[6] = new Package("Amazing holiday in Singapore7", 6, "Hotel + FLight + Transfer ", 29780,false);
-        p[7] = new Package("Amazing holiday in Singapore8", 6, "Hotel + FLight + Transfer ", 34780,false);
-        p[8] = new Package("Amazing holiday in Singapore9", 6, "Hotel + FLight + Transfer ", 45780,false);
-        p[9] = new Package("Amazing holiday in Singapore10", 6, "Hotel + FLight + Transfer ", 53780,false);
-        p[10] = new Package("Amazing holiday in Singapore11", 6, "Hotel + FLight + Transfer ", 68780,false);
-        p[11] = new Package("Amazing holiday in Singapore12", 6, "Hotel + FLight + Transfer ", 72780,false);
-        p[12] = new Package("Amazing holiday in Singapore13", 6, "Hotel + FLight + Transfer ", 79780,false);
-        p[13] = new Package("Amazing holiday in Singapore14", 6, "Hotel + FLight + Transfer ", 86780,false);
-        p[14] = new Package("Amazing holiday in Singapore15", 7, "Hotel + FLight + Transfer ", 29780,false);
-        p[15] = new Package("Amazing holiday in Singapore16", 7, "Hotel + FLight + Transfer ", 34780,false);
-        p[16] = new Package("Amazing holiday in Singapore17", 7, "Hotel + FLight + Transfer ", 53780,false);
-        p[17] = new Package("Amazing holiday in Singapore18", 7, "Hotel + FLight + Transfer ", 68780,false);
-        p[18] = new Package("Amazing holiday in Singapore19", 7, "Hotel + FLight + Transfer ", 79780,false);
-        p[19] = new Package("Amazing holiday in Singapore20", 7, "Hotel + FLight + Transfer ", 86780,false);
+        p[0] = new Package("Amazing holiday in Singapore1", 5, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[1] = new Package("Amazing holiday in Singapore2", 5, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[2] = new Package("Amazing holiday in Singapore3", 5, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[3] = new Package("Amazing holiday in Singapore4", 5, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[4] = new Package("Amazing holiday in Singapore5", 5, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[5] = new Package("Amazing holiday in Singapore6", 5, "Hotel + FLight + Transfer ", 78780,false, false);
+        p[6] = new Package("Amazing holiday in Singapore7", 6, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[7] = new Package("Amazing holiday in Singapore8", 6, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[8] = new Package("Amazing holiday in Singapore9", 6, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[9] = new Package("Amazing holiday in Singapore10", 6, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[10] = new Package("Amazing holiday in Singapore11", 6, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[11] = new Package("Amazing holiday in Singapore12", 6, "Hotel + FLight + Transfer ", 72780,false, false);
+        p[12] = new Package("Amazing holiday in Singapore13", 6, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[13] = new Package("Amazing holiday in Singapore14", 6, "Hotel + FLight + Transfer ", 86780,false, false);
+        p[14] = new Package("Amazing holiday in Singapore15", 7, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[15] = new Package("Amazing holiday in Singapore16", 7, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[16] = new Package("Amazing holiday in Singapore17", 7, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[17] = new Package("Amazing holiday in Singapore18", 7, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[18] = new Package("Amazing holiday in Singapore19", 7, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[19] = new Package("Amazing holiday in Singapore20", 7, "Hotel + FLight + Transfer ", 86780,false, false);
         
     menu(p, budget, night, n);
 
@@ -211,7 +211,7 @@ public class Select_package implements sp{
 
                 c = sca.nextInt();
 
-                if(!(c>0 && c<=n)) {
+                if(!(c>0 && c<=n) || !(p[c-1].isAllowed())) {
 
                     throw new OutOfRange("Not in range");
                 }
@@ -222,7 +222,7 @@ public class Select_package implements sp{
             }
             catch (OutOfRange e)
             {
-                System.out.println("Invalid ....!!!  -->Enter the integer between 1 & " + n);
+                System.out.println("Invalid ....!!!  --> Enter the valid integer.");
                 c=-1;
             }
         }while(c==-1);
@@ -240,26 +240,26 @@ public class Select_package implements sp{
 
         Package[] p = new Package[n];
 
-        p[0] = new Package("Amazing holiday in Bhutan1", 5, "Hotel + FLight + Transfer ", 29780,false);
-        p[1] = new Package("Amazing holiday in Bhutan2", 5, "Hotel + FLight + Transfer ", 34780,false);
-        p[2] = new Package("Amazing holiday in Bhutan3", 5, "Hotel + FLight + Transfer ", 45780,false);
-        p[3] = new Package("Amazing holiday in Bhutan4", 5, "Hotel + FLight + Transfer ", 53780,false);
-        p[4] = new Package("Amazing holiday in Bhutan5", 5, "Hotel + FLight + Transfer ", 68780,false);
-        p[5] = new Package("Amazing holiday in Bhutan6", 5, "Hotel + FLight + Transfer ", 78780,false);
-        p[6] = new Package("Amazing holiday in Bhutan7", 6, "Hotel + FLight + Transfer ", 29780,false);
-        p[7] = new Package("Amazing holiday in Bhutan8", 6, "Hotel + FLight + Transfer ", 34780,false);
-        p[8] = new Package("Amazing holiday in Bhutan9", 6, "Hotel + FLight + Transfer ", 45780,false);
-        p[9] = new Package("Amazing holiday in Bhutan10", 6, "Hotel + FLight + Transfer ", 53780,false);
-        p[10] = new Package("Amazing holiday in Bhutan11", 6, "Hotel + FLight + Transfer ", 68780,false);
-        p[11] = new Package("Amazing holiday in Bhutan12", 6, "Hotel + FLight + Transfer ", 72780,false);
-        p[12] = new Package("Amazing holiday in Bhutan13", 6, "Hotel + FLight + Transfer ", 79780,false);
-        p[13] = new Package("Amazing holiday in Bhutan14", 6, "Hotel + FLight + Transfer ", 86780,false);
-        p[14] = new Package("Amazing holiday in Bhutan15", 7, "Hotel + FLight + Transfer ", 29780,false);
-        p[15] = new Package("Amazing holiday in Bhutan16", 7, "Hotel + FLight + Transfer ", 34780,false);
-        p[16] = new Package("Amazing holiday in Bhutan17", 7, "Hotel + FLight + Transfer ", 53780,false);
-        p[17] = new Package("Amazing holiday in Bhutan18", 7, "Hotel + FLight + Transfer ", 68780,false);
-        p[18] = new Package("Amazing holiday in Bhutan19", 7, "Hotel + FLight + Transfer ", 79780,false);
-        p[19] = new Package("Amazing holiday in Bhutan20", 7, "Hotel + FLight + Transfer ", 86780,false);
+        p[0] = new Package("Amazing holiday in Bhutan1", 5, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[1] = new Package("Amazing holiday in Bhutan2", 5, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[2] = new Package("Amazing holiday in Bhutan3", 5, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[3] = new Package("Amazing holiday in Bhutan4", 5, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[4] = new Package("Amazing holiday in Bhutan5", 5, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[5] = new Package("Amazing holiday in Bhutan6", 5, "Hotel + FLight + Transfer ", 78780,false, false);
+        p[6] = new Package("Amazing holiday in Bhutan7", 6, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[7] = new Package("Amazing holiday in Bhutan8", 6, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[8] = new Package("Amazing holiday in Bhutan9", 6, "Hotel + FLight + Transfer ", 45780,false, false);
+        p[9] = new Package("Amazing holiday in Bhutan10", 6, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[10] = new Package("Amazing holiday in Bhutan11", 6, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[11] = new Package("Amazing holiday in Bhutan12", 6, "Hotel + FLight + Transfer ", 72780,false, false);
+        p[12] = new Package("Amazing holiday in Bhutan13", 6, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[13] = new Package("Amazing holiday in Bhutan14", 6, "Hotel + FLight + Transfer ", 86780,false, false);
+        p[14] = new Package("Amazing holiday in Bhutan15", 7, "Hotel + FLight + Transfer ", 29780,false, false);
+        p[15] = new Package("Amazing holiday in Bhutan16", 7, "Hotel + FLight + Transfer ", 34780,false, false);
+        p[16] = new Package("Amazing holiday in Bhutan17", 7, "Hotel + FLight + Transfer ", 53780,false, false);
+        p[17] = new Package("Amazing holiday in Bhutan18", 7, "Hotel + FLight + Transfer ", 68780,false, false);
+        p[18] = new Package("Amazing holiday in Bhutan19", 7, "Hotel + FLight + Transfer ", 79780,false, false);
+        p[19] = new Package("Amazing holiday in Bhutan20", 7, "Hotel + FLight + Transfer ", 86780,false, false);
         menu(p, budget, night, n);
 
         do {
@@ -268,7 +268,7 @@ public class Select_package implements sp{
 
                 c = sca.nextInt();
 
-                if(!(c>0 && c<=n)) {
+                if(!(c>0 && c<=n) || !(p[c-1].isAllowed())) {
 
                     throw new OutOfRange("Not in range");
                 }
@@ -279,7 +279,7 @@ public class Select_package implements sp{
             }
             catch (OutOfRange e)
             {
-                System.out.println("Invalid ....!!!  -->Enter the integer between 1 & " + n);
+                System.out.println("Invalid ....!!!  --> Enter the valid integer.");
                 c=-1;
             }
         }while(c==-1);
@@ -312,6 +312,7 @@ public class Select_package implements sp{
         for (int i = 0; i < n; i++) {
             if (a[i].getNights() == night + 4 && a[i].getBudget_category() == budget) {
                 flag=false;
+                a[i].setAllowed(true);
                 if (a[i].isIncludes())
                     System.out.println("☑ " + (i + 1) + ": " + a[i].getName() + "           " + a[i].getFacilities() + "       -> ₹" + a[i].getBase_price());
                 else

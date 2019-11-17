@@ -33,10 +33,10 @@ public class select_activity extends basic_utility{
         final int n= 5;
         Activities[] a = new Activities[n];
         a[0] = new Activities("Party ",940,false);
-        a[1] = new Activities("sky diving",1940,false);
-        a[2] = new Activities("Party2",2940,false);
-        a[3] = new Activities("Zecto3",3940,false);
-        a[4] = new Activities("Party4",4940,false);
+        a[1] = new Activities("sky diving",850,false);
+        a[2] = new Activities("Club",999,false);
+        a[3] = new Activities("Zecto",786,false);
+        a[4] = new Activities("surfing",1259,false);
 
         ask_choice(a,n,p);
 
@@ -48,10 +48,11 @@ public class select_activity extends basic_utility{
         final int n= 5;
         Activities[] a = new Activities[n];
         a[0] = new Activities("Party ",940,false);
-        a[1] = new Activities("sky diving",1940,false);
-        a[2] = new Activities("Surfing",2940,false);
-        a[3] = new Activities("Zecto3",3940,false);
-        a[4] = new Activities("Party4",4940,false);
+        a[1] = new Activities("sky diving",850,false);
+        a[2] = new Activities("Club",999,false);
+        a[3] = new Activities("Zecto",786,false);
+        a[4] = new Activities("surfing",1259,false);
+
 
         ask_choice(a,n,p);
 
@@ -62,10 +63,11 @@ public class select_activity extends basic_utility{
         final int n= 5;
         Activities[] a = new Activities[n];
         a[0] = new Activities("Party ",940,false);
-        a[1] = new Activities("sky diving",1940,false);
-        a[2] = new Activities("Surfing",2940,false);
-        a[3] = new Activities("Party3",3940,false);
-        a[4] = new Activities("Zecto4",4940,false);
+        a[1] = new Activities("sky diving",850,false);
+        a[2] = new Activities("Club",999,false);
+        a[3] = new Activities("Zecto",786,false);
+        a[4] = new Activities("surfing",1259,false);
+
 
         ask_choice(a,n,p);
 
@@ -77,11 +79,12 @@ public class select_activity extends basic_utility{
         final int n= 5;
 
         Activities[] a = new Activities[n];
-        a[0] = new Activities("Surfing ",940,false);
-        a[1] = new Activities("sky diving",1940,false);
-        a[2] = new Activities("Party",2940,false);
-        a[3] = new Activities("Zecto",3940,false);
-        a[4] = new Activities("Party2",4940,false);
+        a[0] = new Activities("Party ",940,false);
+        a[1] = new Activities("sky diving",850,false);
+        a[2] = new Activities("Club",999,false);
+        a[3] = new Activities("Zecto",786,false);
+        a[4] = new Activities("surfing",1259,false);
+
 
         ask_choice(a,n,p);
 
